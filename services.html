@@ -109,15 +109,7 @@ p.lead{ color:var(--paper); font-size:1.1rem; font-weight:400; opacity:.92; }
 }
 .site-header .wrap{ display:flex; align-items:center; justify-content:space-between; height:86px; }
 .logo{ display:flex; align-items:center; gap:12px; }
-/* Replace this block with <img src="logo.png" alt="Alpha Color Advertising" style="height:44px"> when you have a logo file */
-.logo-mark{
-  width:44px; height:44px;
-  border-radius:10px;
-  background:var(--gradient);
-  display:flex; align-items:center; justify-content:center;
-  font-family:var(--display); font-size:16px; font-weight:600; color:#160a22;
-  flex-shrink:0;
-}
+.logo-img{ height:44px; width:auto; flex-shrink:0; }
 .logo-text{ font-family:var(--display); font-size:16px; letter-spacing:.01em; line-height:1.15; font-weight:600; }
 .logo-text span{ display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; color:var(--stone-dim); margin-top:3px; font-weight:400; }
 
@@ -286,8 +278,7 @@ section{ padding:100px 0; }
 <header class="site-header">
   <div class="wrap">
     <a href="index.html" class="logo">
-      <!-- Replace with: <img src="logo.png" alt="Alpha Color Advertising" style="height:44px"> -->
-      <span class="logo-mark">AC</span>
+      <img src="logo.png" alt="Alpha Color Advertising" class="logo-img">
       <span class="logo-text">Alpha Color<span>Advertising · Dubai</span></span>
     </a>
     <nav class="nav-links">
@@ -298,7 +289,7 @@ section{ padding:100px 0; }
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-cta">
-      <a href="tel:+971000000000" class="btn btn-ghost">+971 00 000 0000</a>
+      <a href="tel:+971544007790" class="btn btn-ghost">+971 544007790</a>
       <a href="contact.html" class="btn btn-solid">Request a Quote</a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
@@ -420,7 +411,7 @@ section{ padding:100px 0; }
     <div class="footer-grid">
       <div class="footer-col">
         <div class="footer-logo">
-          <span class="logo-mark">AC</span>
+          <img src="logo.png" alt="Alpha Color Advertising" class="logo-img">
           <span class="logo-text">Alpha Color<span>Advertising · Dubai</span></span>
         </div>
         <p>A leading branding, signage, and printing company in Karama, Dubai — from concept and design through fabrication and installation.</p>
@@ -447,8 +438,8 @@ section{ padding:100px 0; }
       <div class="footer-col">
         <h4>Contact</h4>
         <p>Karama, Dubai, United Arab Emirates</p>
-        <p style="margin-top:10px;">+971 00 000 0000</p>
-        <p style="margin-top:6px;">info@alphacoloradvertising.com</p>
+        <p style="margin-top:10px;"><a href="tel:+971544007790" style="color:var(--stone);">+971 544007790</a></p>
+        <p style="margin-top:6px;"><a href="mailto:alphacoloradv@gmail.com" style="color:var(--stone);">alphacoloradv@gmail.com</a></p>
       </div>
     </div>
     <div class="footer-bottom">
