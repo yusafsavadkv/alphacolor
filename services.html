@@ -169,24 +169,16 @@ section{ padding:100px 0; }
   background:var(--ink-2); /* shows while the photo loads */
 }
 
-/* Real photo — fills the box, cropped to fit */
+/* Illustration — fills the box; carries its own brand-gradient background */
 .svc-photo{
   position:absolute; inset:0;
   width:100%; height:100%;
+  display:block;
   object-fit:cover;
   object-position:center;
   z-index:0;
 }
 
-/* Brand-color tint over the photo so every image reads as one family */
-.svc-image::before{
-  content:"";
-  position:absolute; inset:0;
-  background:var(--img-grad, linear-gradient(135deg, var(--violet), var(--magenta)));
-  opacity:.28;
-  mix-blend-mode:multiply;
-  z-index:1;
-}
 .svc-image::after{
   content:"";
   position:absolute; inset:0;
@@ -203,21 +195,6 @@ section{ padding:100px 0; }
 .svc-body{ padding:26px 26px 30px; }
 .svc-body h3{ margin-bottom:10px; }
 .svc-body p{ font-size:.93rem; }
-
-/* Distinct gradient tint per card, cycling through the palette */
-.svc-card:nth-child(1) .svc-image{ --img-grad: linear-gradient(135deg,#8b5cf6,#ec4899); }
-.svc-card:nth-child(2) .svc-image{ --img-grad: linear-gradient(135deg,#ec4899,#22d3ee); }
-.svc-card:nth-child(3) .svc-image{ --img-grad: linear-gradient(135deg,#22d3ee,#8b5cf6); }
-.svc-card:nth-child(4) .svc-image{ --img-grad: linear-gradient(135deg,#f2c14e,#ec4899); }
-.svc-card:nth-child(5) .svc-image{ --img-grad: linear-gradient(135deg,#8b5cf6,#22d3ee); }
-.svc-card:nth-child(6) .svc-image{ --img-grad: linear-gradient(135deg,#ec4899,#8b5cf6); }
-.svc-card:nth-child(7) .svc-image{ --img-grad: linear-gradient(135deg,#22d3ee,#f2c14e); }
-.svc-card:nth-child(8) .svc-image{ --img-grad: linear-gradient(135deg,#8b5cf6,#f2c14e); }
-.svc-card:nth-child(9) .svc-image{ --img-grad: linear-gradient(135deg,#ec4899,#f2c14e); }
-.svc-card:nth-child(10) .svc-image{ --img-grad: linear-gradient(135deg,#22d3ee,#ec4899); }
-.svc-card:nth-child(11) .svc-image{ --img-grad: linear-gradient(135deg,#f2c14e,#8b5cf6); }
-.svc-card:nth-child(12) .svc-image{ --img-grad: linear-gradient(135deg,#8b5cf6,#ec4899,#22d3ee); }
-.svc-card:nth-child(13) .svc-image{ --img-grad: linear-gradient(135deg,#22d3ee,#8b5cf6,#ec4899); }
 
 /* ---------- Why choose ---------- */
 .why-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
@@ -277,6 +254,121 @@ section{ padding:100px 0; }
 </head>
 <body>
 
+<!-- Shared SVG artwork library — original icon illustrations for the services grid below.
+     Nothing here is a photo; it's brand-styled line art built from the site's own palette,
+     so the grid looks complete today. Swap any card's <svg> for a real <img src="images/serviceN.jpg">
+     the moment you have photography — the CSS already supports both. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+  <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+  <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+  <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+  <linearGradient id="grad4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2c14e"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+  <linearGradient id="grad5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+  <linearGradient id="grad6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+  <linearGradient id="grad7" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#f2c14e"/></linearGradient>
+  <linearGradient id="grad8" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#f2c14e"/></linearGradient>
+  <linearGradient id="grad9" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#f2c14e"/></linearGradient>
+  <linearGradient id="grad10" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+  <linearGradient id="grad11" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2c14e"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+  <linearGradient id="grad12" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset=".5" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+  <linearGradient id="grad13" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+
+  <pattern id="svc-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+    <path d="M22 0H0V22" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
+  </pattern>
+
+  <g id="icon-vehicle" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 62 L16 34 Q20 26 30 26 L74 26 Q84 26 88 34 L98 62 Z"/>
+    <path d="M6 62 H98"/>
+    <circle cx="28" cy="62" r="10" fill="#120e1c"/>
+    <circle cx="76" cy="62" r="10" fill="#120e1c"/>
+    <path d="M10 44 Q52 58 94 44" stroke="#f2c14e" stroke-width="4"/>
+  </g>
+
+  <g id="icon-corporate" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="16" y="10" width="48" height="80" rx="2"/>
+    <path d="M24 24h10M40 24h10M24 40h10M40 40h10M24 56h10M40 56h10M24 72h10M40 72h10"/>
+    <path d="M64 46h20v44H64z"/>
+    <circle cx="82" cy="20" r="10" fill="#f2c14e" stroke="none"/>
+  </g>
+
+  <g id="icon-3d" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 78 L28 30 L50 18 L72 30 L72 78 Z"/>
+    <path d="M28 30 L50 42 L72 30"/>
+    <path d="M50 42 L50 78"/>
+    <path d="M72 30 L84 24 L84 72 L72 78" stroke="#22d3ee"/>
+  </g>
+
+  <g id="icon-led" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="14" y="30" width="72" height="40" rx="8"/>
+    <circle cx="32" cy="50" r="4" fill="#f2c14e" stroke="none"/>
+    <circle cx="50" cy="50" r="4" fill="#f2c14e" stroke="none"/>
+    <circle cx="68" cy="50" r="4" fill="#f2c14e" stroke="none"/>
+    <path d="M8 24 L14 30M92 24 L86 30M8 76 L14 70M92 76 L86 70" stroke="#22d3ee" stroke-width="4"/>
+  </g>
+
+  <g id="icon-signage" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 20 V88"/>
+    <path d="M14 30 H60 L72 42 L60 54 H14 Z"/>
+    <path d="M50 20 h30 L92 32 L80 44 H50" stroke="#ec4899"/>
+  </g>
+
+  <g id="icon-laser" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="18" y="18" width="64" height="64" rx="2"/>
+    <path d="M18 18 L82 82" stroke="#ec4899" stroke-width="4" stroke-dasharray="2 8"/>
+    <path d="M60 18 L88 8" stroke="#22d3ee"/>
+    <circle cx="82" cy="82" r="5" fill="#f2c14e" stroke="none"/>
+  </g>
+
+  <g id="icon-plaque" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="14" y="26" width="72" height="48" rx="4"/>
+    <path d="M22 40h56M22 50h56M22 60h30"/>
+    <circle cx="22" cy="34" r="3" fill="#f2c14e" stroke="none"/>
+    <circle cx="78" cy="34" r="3" fill="#f2c14e" stroke="none"/>
+    <circle cx="22" cy="66" r="3" fill="#f2c14e" stroke="none"/>
+    <circle cx="78" cy="66" r="3" fill="#f2c14e" stroke="none"/>
+  </g>
+
+  <g id="icon-vinyl" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="14" y="14" width="72" height="60" rx="2"/>
+    <path d="M50 14v60M14 44h72"/>
+    <path d="M62 74 Q62 90 78 90 L78 74 Z" stroke="#ec4899"/>
+  </g>
+
+  <g id="icon-office" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="20" y="14" width="60" height="36" rx="2"/>
+    <circle cx="50" cy="32" r="10" stroke="#f2c14e"/>
+    <path d="M14 80 h72 M24 80 V62 h52 v18" />
+  </g>
+
+  <g id="icon-exhibition" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 14 Q50 26 70 14 V70 Q50 82 30 70 Z"/>
+    <path d="M30 14 V70 M70 14 V70" stroke="#22d3ee"/>
+    <path d="M14 86 h72" />
+  </g>
+
+  <g id="icon-cards" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="16" y="38" width="52" height="34" rx="4" transform="rotate(-8 42 55)"/>
+    <rect x="24" y="30" width="52" height="34" rx="4" fill="#180f27"/>
+    <path d="M34 42h32M34 50h20" stroke="#f2c14e" stroke-width="3"/>
+  </g>
+
+  <g id="icon-gift" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="18" y="40" width="52" height="40" rx="2"/>
+    <path d="M18 56h52M44 40v40" stroke="#ec4899"/>
+    <path d="M44 40 Q30 24 20 34 Q30 44 44 40 Q58 24 68 34 Q58 44 44 40Z" stroke="#f2c14e"/>
+    <path d="M78 46h16v28H78z" stroke="#22d3ee"/>
+  </g>
+
+  <g id="icon-widefmt" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="14" y="16" width="12" height="60" rx="6" fill="#180f27"/>
+    <path d="M26 22 H80 V80 H26 Z"/>
+    <path d="M36 36h34M36 48h34M36 60h20" stroke="#22d3ee" stroke-width="4"/>
+  </g>
+</defs>
+</svg>
+
 <header class="site-header">
   <div class="wrap">
     <a href="index.html" class="logo">
@@ -313,67 +405,67 @@ section{ padding:100px 0; }
       <div class="svc-grid reveal">
 
         <div class="svc-card">
-          <div class="svc-image"><img src="service1.jpg" alt="Vehicle Graphics" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc1/700/525';"><span class="idx-mark">01</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Vehicle Graphics illustration"><rect width="400" height="300" fill="url(#grad1)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-vehicle" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">01</span></div>
           <div class="svc-body"><h3>Vehicle Graphics</h3><p>Full and partial wraps, decals, and fleet livery for commercial and individual vehicles.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service2.jpg" alt="Corporate Branding" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc2/700/525';"><span class="idx-mark">02</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Corporate Branding illustration"><rect width="400" height="300" fill="url(#grad2)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-corporate" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">02</span></div>
           <div class="svc-body"><h3>Corporate Branding</h3><p>Consistent visual identity applied across offices, storefronts, and collateral.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service3.jpg" alt="3D Signage" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc3/700/525';"><span class="idx-mark">03</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="3D Signage illustration"><rect width="400" height="300" fill="url(#grad3)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-3d" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">03</span></div>
           <div class="svc-body"><h3>3D Signage</h3><p>Dimensional letters and logos built for depth and presence.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service4.jpg" alt="LED and Flex Face Signs" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc4/700/525';"><span class="idx-mark">04</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="LED and Flex Face Signs illustration"><rect width="400" height="300" fill="url(#grad4)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-led" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">04</span></div>
           <div class="svc-body"><h3>LED &amp; Flex Face Signs</h3><p>Illuminated signage engineered for day and night visibility.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service5.jpg" alt="Indoor and Outdoor Signage" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc5/700/525';"><span class="idx-mark">05</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Indoor and Outdoor Signage illustration"><rect width="400" height="300" fill="url(#grad5)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-signage" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">05</span></div>
           <div class="svc-body"><h3>Indoor &amp; Outdoor Signage</h3><p>Wayfinding, storefront, and directional signage for any environment.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service6.jpg" alt="Acrylic Laser Cutting" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc6/700/525';"><span class="idx-mark">06</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Acrylic Laser Cutting illustration"><rect width="400" height="300" fill="url(#grad6)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-laser" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">06</span></div>
           <div class="svc-body"><h3>Acrylic Laser Cutting</h3><p>Precision-cut acrylic panels, letters, and displays.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service7.jpg" alt="Steel and Wooden Signs" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc7/700/525';"><span class="idx-mark">07</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Steel and Wooden Signs illustration"><rect width="400" height="300" fill="url(#grad7)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-plaque" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">07</span></div>
           <div class="svc-body"><h3>Steel &amp; Wooden Signs</h3><p>Durable signage for premium interiors and outdoor installations.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service8.jpg" alt="Vinyl Graphics" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc8/700/525';"><span class="idx-mark">08</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Vinyl Graphics illustration"><rect width="400" height="300" fill="url(#grad8)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-vinyl" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">08</span></div>
           <div class="svc-body"><h3>Vinyl Graphics</h3><p>Window films, wall graphics, and surface branding.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service9.jpg" alt="Office Branding" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc9/700/525';"><span class="idx-mark">09</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Office Branding illustration"><rect width="400" height="300" fill="url(#grad9)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-office" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">09</span></div>
           <div class="svc-body"><h3>Office Branding</h3><p>Reception walls, meeting room signage, and interior identity.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service10.jpg" alt="Exhibition Displays" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc10/700/525';"><span class="idx-mark">10</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Exhibition Displays illustration"><rect width="400" height="300" fill="url(#grad10)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-exhibition" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">10</span></div>
           <div class="svc-body"><h3>Exhibition Displays</h3><p>Portable and custom-built stands for trade shows and events.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service11.jpg" alt="Business Cards, Letterheads and Stationery" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc11/700/525';"><span class="idx-mark">11</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Business Cards, Letterheads and Stationery illustration"><rect width="400" height="300" fill="url(#grad11)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-cards" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">11</span></div>
           <div class="svc-body"><h3>Business Cards, Letterheads &amp; Stationery</h3><p>Premium print collateral that matches your brand standard.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service12.jpg" alt="Gift and Offset Printing" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc12/700/525';"><span class="idx-mark">12</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Gift and Offset Printing illustration"><rect width="400" height="300" fill="url(#grad12)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-gift" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">12</span></div>
           <div class="svc-body"><h3>Gift &amp; Offset Printing</h3><p>Branded merchandise and high-volume offset print runs.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><img src="images/service13.jpg" alt="Wide Format Digital Printing" class="svc-photo" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/acsvc13/700/525';"><span class="idx-mark">13</span></div>
+          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Wide Format Digital Printing illustration"><rect width="400" height="300" fill="url(#grad13)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-widefmt" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">13</span></div>
           <div class="svc-body"><h3>Wide Format Digital Printing</h3><p>Banners, posters, and large-format graphics.</p></div>
         </div>
 
