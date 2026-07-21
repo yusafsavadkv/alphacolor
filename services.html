@@ -166,44 +166,45 @@ section{ padding:100px 0; }
   aspect-ratio:4/3;
   overflow:hidden;
   display:flex; align-items:flex-end;
-  /* Replace this gradient with: background:url('images/service-name.jpg') center/cover; */
+  background:var(--ink-2); /* shows while the photo loads */
 }
+
+/* Real photo — fills the box, cropped to fit */
+.svc-photo{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center;
+  z-index:0;
+}
+
+/* Brand-color tint over the photo so every image reads as one family */
 .svc-image::before{
   content:"";
   position:absolute; inset:0;
   background:var(--img-grad, linear-gradient(135deg, var(--violet), var(--magenta)));
-  opacity:.9;
+  opacity:.28;
+  mix-blend-mode:multiply;
+  z-index:1;
 }
 .svc-image::after{
   content:"";
   position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
-  background-size:22px 22px;
-  mix-blend-mode:overlay;
-}
-.svc-image .img-tag{
-  position:relative; z-index:1;
-  font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
-  color:rgba(255,255,255,.85);
-  background:rgba(0,0,0,.28);
-  padding:7px 12px;
-  margin:14px;
-  border-radius:4px;
-  backdrop-filter:blur(6px);
+  background:linear-gradient(180deg, rgba(18,14,28,0) 45%, rgba(18,14,28,.75) 100%);
+  z-index:1;
 }
 .svc-image .idx-mark{
-  position:absolute; top:14px; right:16px; z-index:1;
+  position:absolute; top:14px; right:16px; z-index:2;
   font-family:var(--display); font-size:1.6rem; font-weight:600;
-  color:rgba(255,255,255,.55);
+  color:rgba(255,255,255,.75);
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
 }
 
 .svc-body{ padding:26px 26px 30px; }
 .svc-body h3{ margin-bottom:10px; }
 .svc-body p{ font-size:.93rem; }
 
-/* Distinct gradient per card, cycling through the palette */
+/* Distinct gradient tint per card, cycling through the palette */
 .svc-card:nth-child(1) .svc-image{ --img-grad: linear-gradient(135deg,#8b5cf6,#ec4899); }
 .svc-card:nth-child(2) .svc-image{ --img-grad: linear-gradient(135deg,#ec4899,#22d3ee); }
 .svc-card:nth-child(3) .svc-image{ --img-grad: linear-gradient(135deg,#22d3ee,#8b5cf6); }
@@ -263,7 +264,8 @@ section{ padding:100px 0; }
   .footer-grid{ grid-template-columns:1fr 1fr; }
 }
 @media (max-width:760px){
-  .nav-links, .header-cta .btn-ghost{ display:none; }
+  .nav-links{ display:none; }
+  .header-cta .btn-ghost{ display:none; }
   .nav-toggle{ display:block; }
   .svc-grid{ grid-template-columns:1fr; }
   .why-list{ grid-template-columns:1fr; }
@@ -311,67 +313,67 @@ section{ padding:100px 0; }
       <div class="svc-grid reveal">
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">01</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service1.jpg" alt="Vehicle Graphics" class="svc-photo" loading="lazy"><span class="idx-mark">01</span></div>
           <div class="svc-body"><h3>Vehicle Graphics</h3><p>Full and partial wraps, decals, and fleet livery for commercial and individual vehicles.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">02</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service2.jpg" alt="Corporate Branding" class="svc-photo" loading="lazy"><span class="idx-mark">02</span></div>
           <div class="svc-body"><h3>Corporate Branding</h3><p>Consistent visual identity applied across offices, storefronts, and collateral.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">03</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service3.jpg" alt="3D Signage" class="svc-photo" loading="lazy"><span class="idx-mark">03</span></div>
           <div class="svc-body"><h3>3D Signage</h3><p>Dimensional letters and logos built for depth and presence.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">04</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service4.jpg" alt="LED and Flex Face Signs" class="svc-photo" loading="lazy"><span class="idx-mark">04</span></div>
           <div class="svc-body"><h3>LED &amp; Flex Face Signs</h3><p>Illuminated signage engineered for day and night visibility.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">05</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service5.jpg" alt="Indoor and Outdoor Signage" class="svc-photo" loading="lazy"><span class="idx-mark">05</span></div>
           <div class="svc-body"><h3>Indoor &amp; Outdoor Signage</h3><p>Wayfinding, storefront, and directional signage for any environment.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">06</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service6.jpg" alt="Acrylic Laser Cutting" class="svc-photo" loading="lazy"><span class="idx-mark">06</span></div>
           <div class="svc-body"><h3>Acrylic Laser Cutting</h3><p>Precision-cut acrylic panels, letters, and displays.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">07</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service7.jpg" alt="Steel and Wooden Signs" class="svc-photo" loading="lazy"><span class="idx-mark">07</span></div>
           <div class="svc-body"><h3>Steel &amp; Wooden Signs</h3><p>Durable signage for premium interiors and outdoor installations.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">08</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service8.jpg" alt="Vinyl Graphics" class="svc-photo" loading="lazy"><span class="idx-mark">08</span></div>
           <div class="svc-body"><h3>Vinyl Graphics</h3><p>Window films, wall graphics, and surface branding.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">09</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service9.jpg" alt="Office Branding" class="svc-photo" loading="lazy"><span class="idx-mark">09</span></div>
           <div class="svc-body"><h3>Office Branding</h3><p>Reception walls, meeting room signage, and interior identity.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">10</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service10.jpg" alt="Exhibition Displays" class="svc-photo" loading="lazy"><span class="idx-mark">10</span></div>
           <div class="svc-body"><h3>Exhibition Displays</h3><p>Portable and custom-built stands for trade shows and events.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">11</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service11.jpg" alt="Business Cards, Letterheads and Stationery" class="svc-photo" loading="lazy"><span class="idx-mark">11</span></div>
           <div class="svc-body"><h3>Business Cards, Letterheads &amp; Stationery</h3><p>Premium print collateral that matches your brand standard.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">12</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service12.jpg" alt="Gift and Offset Printing" class="svc-photo" loading="lazy"><span class="idx-mark">12</span></div>
           <div class="svc-body"><h3>Gift &amp; Offset Printing</h3><p>Branded merchandise and high-volume offset print runs.</p></div>
         </div>
 
         <div class="svc-card">
-          <div class="svc-image"><span class="idx-mark">13</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="svc-image"><img src="images/service13.jpg" alt="Wide Format Digital Printing" class="svc-photo" loading="lazy"><span class="idx-mark">13</span></div>
           <div class="svc-body"><h3>Wide Format Digital Printing</h3><p>Banners, posters, and large-format graphics.</p></div>
         </div>
 
@@ -459,9 +461,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var links = document.querySelector('.nav-links');
   if (toggle && links) {
     toggle.addEventListener('click', function () {
-      var open = links.style.display === 'flex';
-      links.style.display = open ? 'none' : 'flex';
-      links.style.cssText += open ? '' : 'position:absolute;top:86px;left:0;right:0;flex-direction:column;background:rgba(18,14,28,.98);padding:26px 32px;gap:20px;border-bottom:1px solid rgba(255,255,255,.08);';
+      var open = links.classList.contains('nav-open');
+      if (open) {
+        links.classList.remove('nav-open');
+        links.style.display = '';
+        links.style.cssText = '';
+      } else {
+        links.classList.add('nav-open');
+        links.style.cssText = 'display:flex;position:absolute;top:86px;left:0;right:0;flex-direction:column;background:rgba(18,14,28,.98);padding:26px 32px;gap:20px;border-bottom:1px solid rgba(255,255,255,.08);';
+      }
     });
   }
   var revealEls = document.querySelectorAll('.reveal');
