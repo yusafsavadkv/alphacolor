@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Projects | Alpha Color Advertising — Dubai</title>
+<meta name="description" content="Recently completed branding, signage, and printing projects across retail, hospitality, healthcare, education, and corporate sectors in Dubai and the UAE.">
+
+<style>
+/* =========================================================
+   ALPHA COLOR ADVERTISING — Our Projects
+   Same "Luxury Neon" system: deep indigo base, violet → magenta
+   → cyan gradient signature, gold as fine trim.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --ink:        #120e1c;
+  --ink-2:      #180f27;
+  --panel:      #1d1530;
+  --panel-line: rgba(255,255,255,.08);
+
+  --violet:     #8b5cf6;
+  --magenta:    #ec4899;
+  --cyan:       #22d3ee;
+  --gold:       #f2c14e;
+
+  --gradient:   linear-gradient(100deg, var(--violet) 0%, var(--magenta) 52%, var(--cyan) 100%);
+
+  --paper:      #f8f5ff;
+  --stone:      #b6adcf;
+  --stone-dim:  #7c7396;
+
+  --display: 'Fraunces', Georgia, serif;
+  --body:    'Manrope', -apple-system, sans-serif;
+  --mono:    'IBM Plex Mono', monospace;
+
+  --radius: 6px;
+  --container: 1180px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--body);
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+::selection{ background:var(--magenta); color:#fff; }
+:focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; }
+
+.wrap{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  font-weight:500;
+}
+.eyebrow::before{ content:""; width:22px; height:2px; background:var(--gradient); border-radius:2px; }
+
+h1,h2,h3{ font-family:var(--display); font-weight:600; letter-spacing:-.01em; color:var(--paper); }
+h1{ font-size:clamp(2.2rem,4.4vw,3.4rem); line-height:1.08; }
+h2{ font-size:clamp(1.9rem,3.4vw,2.7rem); line-height:1.15; }
+h3{ font-size:1.15rem; font-weight:600; }
+p{ color:var(--stone); font-weight:400; }
+p.lead{ color:var(--paper); font-size:1.1rem; font-weight:400; opacity:.92; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:16px 32px;
+  font-family:var(--body); font-weight:600; font-size:14px;
+  border-radius:var(--radius);
+  border:1px solid transparent;
+  transition:all .35s ease;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.btn-solid{
+  background:var(--gradient);
+  background-size:180% 180%;
+  color:#160a22;
+}
+.btn-solid:hover{ background-position:100% 0; box-shadow:0 8px 30px rgba(236,72,153,.35); transform:translateY(-2px); }
+.btn-ghost{ background:rgba(255,255,255,.03); color:var(--paper); border-color:var(--panel-line); }
+.btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); }
+
+/* ---------- Header ---------- */
+.site-header{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(18,14,28,.82);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--panel-line);
+}
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; height:86px; }
+.logo{ display:flex; align-items:center; gap:12px; }
+/* Replace this block with <img src="logo.png" alt="Alpha Color Advertising" style="height:44px"> when you have a logo file */
+.logo-mark{
+  width:44px; height:44px;
+  border-radius:10px;
+  background:var(--gradient);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--display); font-size:16px; font-weight:600; color:#160a22;
+  flex-shrink:0;
+}
+.logo-text{ font-family:var(--display); font-size:16px; letter-spacing:.01em; line-height:1.15; font-weight:600; }
+.logo-text span{ display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; color:var(--stone-dim); margin-top:3px; font-weight:400; }
+
+.nav-links{ display:flex; align-items:center; gap:38px; }
+.nav-links a{
+  font-family:var(--body); font-weight:500; font-size:14px;
+  color:var(--stone); position:relative; padding-bottom:6px; transition:color .25s ease;
+}
+.nav-links a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--gradient); border-radius:2px; transition:width .3s ease; }
+.nav-links a:hover, .nav-links a.active{ color:var(--paper); }
+.nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
+
+.header-cta{ display:flex; align-items:center; gap:28px; }
+.header-cta .btn{ padding:12px 24px; }
+
+.nav-toggle{ display:none; width:26px; height:20px; position:relative; background:none; border:none; cursor:pointer; }
+.nav-toggle span{ position:absolute; left:0; right:0; height:2px; border-radius:2px; background:var(--paper); }
+.nav-toggle span:nth-child(1){ top:0; }
+.nav-toggle span:nth-child(2){ top:9px; }
+.nav-toggle span:nth-child(3){ top:18px; }
+
+/* ---------- Page hero ---------- */
+.page-hero{
+  position:relative; padding:170px 0 76px; overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% -10%, rgba(34,211,238,.28), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 5% 20%, rgba(139,92,246,.24), transparent 60%),
+    var(--ink);
+  border-bottom:1px solid var(--panel-line);
+}
+.page-hero .wrap{ position:relative; }
+.crumb{ font-family:var(--mono); font-size:11px; color:var(--stone-dim); letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px; display:block; }
+.crumb .grad{ background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.page-hero h1{ max-width:20ch; margin-bottom:16px; }
+.page-hero p{ max-width:58ch; }
+
+/* ---------- Sections ---------- */
+section{ padding:100px 0; }
+.section-alt{ background:var(--ink-2); }
+.section-head{ max-width:640px; margin-bottom:56px; }
+.section-head h2{ margin-top:16px; }
+
+/* ---------- Sector chips ---------- */
+.chip-grid{ display:flex; flex-wrap:wrap; gap:12px; }
+.chip{
+  font-family:var(--mono); font-size:12px; letter-spacing:.05em;
+  padding:11px 20px; border-radius:30px;
+  border:1px solid var(--panel-line);
+  color:var(--stone); background:var(--panel);
+  transition:all .3s ease;
+}
+.chip:hover{ border-color:transparent; box-shadow:0 0 0 1px var(--magenta); color:var(--paper); }
+
+/* ---------- Project grid ---------- */
+.proj-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+
+.proj-card{
+  background:var(--panel); border:1px solid var(--panel-line); border-radius:12px;
+  overflow:hidden; transition:all .35s ease; position:relative;
+}
+.proj-card:hover{ transform:translateY(-5px); border-color:transparent; box-shadow:0 20px 48px rgba(139,92,246,.22), 0 0 0 1px var(--magenta); }
+
+.proj-image{
+  position:relative;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  display:flex; align-items:flex-end;
+  /* Replace this gradient with: background:url('images/project-name.jpg') center/cover; */
+}
+.proj-image::before{
+  content:"";
+  position:absolute; inset:0;
+  background:var(--img-grad, linear-gradient(135deg, var(--violet), var(--magenta)));
+  opacity:.9;
+}
+.proj-image::after{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size:22px 22px;
+  mix-blend-mode:overlay;
+}
+.proj-image .img-tag{
+  position:relative; z-index:1;
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  background:rgba(0,0,0,.28);
+  padding:7px 12px;
+  margin:14px;
+  border-radius:4px;
+  backdrop-filter:blur(6px);
+}
+.proj-image .sector-tag{
+  position:absolute; top:14px; right:16px; z-index:1;
+  font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+  color:#160a22; background:rgba(255,255,255,.88);
+  padding:5px 11px; border-radius:20px; font-weight:600;
+}
+
+.proj-body{ padding:22px 24px 26px; }
+.proj-body h3{ margin-bottom:6px; }
+.proj-body p{ font-size:.88rem; font-family:var(--mono); letter-spacing:.04em; color:var(--stone-dim); text-transform:uppercase; }
+
+/* Distinct gradient per card, cycling through the palette */
+.proj-card:nth-child(3n+1) .proj-image{ --img-grad: linear-gradient(135deg,#8b5cf6,#ec4899); }
+.proj-card:nth-child(3n+2) .proj-image{ --img-grad: linear-gradient(135deg,#ec4899,#22d3ee); }
+.proj-card:nth-child(3n+3) .proj-image{ --img-grad: linear-gradient(135deg,#22d3ee,#8b5cf6); }
+.proj-card:nth-child(5n) .proj-image{ --img-grad: linear-gradient(135deg,#f2c14e,#ec4899); }
+.proj-card:nth-child(7n) .proj-image{ --img-grad: linear-gradient(135deg,#8b5cf6,#f2c14e); }
+
+/* ---------- Process ---------- */
+.process{ display:flex; justify-content:space-between; gap:14px; position:relative; }
+.process::before{ content:""; position:absolute; top:17px; left:0; right:0; height:2px; background:var(--gradient); opacity:.35; }
+.process-step{ flex:1; text-align:left; position:relative; }
+.process-step .step-num{
+  width:34px; height:34px; border-radius:50%;
+  background:var(--panel); border:1px solid var(--panel-line); color:var(--paper);
+  font-family:var(--mono); font-size:12px; font-weight:500;
+  display:flex; align-items:center; justify-content:center;
+  position:relative; z-index:1; margin-bottom:16px;
+}
+.process-step:nth-child(1) .step-num{ box-shadow:0 0 0 2px var(--violet); }
+.process-step:nth-child(2) .step-num{ box-shadow:0 0 0 2px var(--violet); }
+.process-step:nth-child(3) .step-num{ box-shadow:0 0 0 2px var(--magenta); }
+.process-step:nth-child(4) .step-num{ box-shadow:0 0 0 2px var(--magenta); }
+.process-step:nth-child(5) .step-num{ box-shadow:0 0 0 2px var(--cyan); }
+.process-step:nth-child(6) .step-num{ box-shadow:0 0 0 2px var(--cyan); }
+.process-step h3{ font-size:.98rem; margin-bottom:6px; }
+.process-step p{ font-size:.86rem; }
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  position:relative; text-align:center; padding:100px 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(236,72,153,.18), transparent 65%),
+    var(--ink-2);
+  border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line);
+}
+.cta-band h2{ max-width:22ch; margin:0 auto 30px; }
+.cta-band .hero-actions{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
+
+/* ---------- Footer ---------- */
+.site-footer{ background:var(--ink-2); border-top:1px solid var(--panel-line); padding:80px 0 30px; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.1fr; gap:50px; padding-bottom:60px; }
+.footer-col h4{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:500; }
+.footer-col p{ font-size:.9rem; }
+.footer-col ul li{ margin-bottom:11px; }
+.footer-col ul li a{ font-size:.9rem; color:var(--stone); transition:color .25s ease; }
+.footer-col ul li a:hover{ color:var(--cyan); }
+.footer-logo{ display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+
+.footer-bottom{ border-top:1px solid var(--panel-line); padding-top:26px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+.footer-bottom p{ font-family:var(--mono); font-size:11px; color:var(--stone-dim); letter-spacing:.04em; }
+.social-row{ display:flex; gap:16px; }
+.social-row a{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--stone); text-transform:uppercase; }
+.social-row a:hover{ color:var(--cyan); }
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .proj-grid{ grid-template-columns:1fr 1fr; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .process{ flex-wrap:wrap; }
+  .process::before{ display:none; }
+  .process-step{ flex:1 1 45%; }
+}
+@media (max-width:760px){
+  .nav-links, .header-cta .btn-ghost{ display:none; }
+  .nav-toggle{ display:block; }
+  .proj-grid{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; gap:36px; }
+  section{ padding:70px 0; }
+  .page-hero{ padding:150px 0 56px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <!-- Replace with: <img src="logo.png" alt="Alpha Color Advertising" style="height:44px"> -->
+      <span class="logo-mark">AC</span>
+      <span class="logo-text">Alpha Color<span>Advertising · Dubai</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+971000000000" class="btn btn-ghost">+971 00 000 0000</a>
+      <a href="contact.html" class="btn btn-solid">Request a Quote</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="crumb">Home <span class="grad">/</span> Our Projects</span>
+      <h1>Precision, Durability, Craftsmanship</h1>
+      <p class="lead">A selection of recently completed branding, signage, and printing projects for clients across Dubai and the wider UAE.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="chip-grid" style="margin-bottom:50px;">
+        <span class="chip">Retail Outlets</span>
+        <span class="chip">Shopping Malls</span>
+        <span class="chip">Restaurants</span>
+        <span class="chip">Cafés</span>
+        <span class="chip">Clinics</span>
+        <span class="chip">Hospitals</span>
+        <span class="chip">Schools</span>
+        <span class="chip">Offices</span>
+        <span class="chip">Warehouses</span>
+        <span class="chip">Commercial Buildings</span>
+      </div>
+
+      <div class="proj-grid">
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Retail</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Storefront Signage &amp; Rebrand</h3><p>Retail Outlet · Karama</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Hospitality</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Café Interior &amp; Signage</h3><p>Café · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Healthcare</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Clinic Wayfinding System</h3><p>Clinic · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Corporate</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Office Reception Branding</h3><p>Corporate Office · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Retail</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Mall Kiosk Signage</h3><p>Shopping Mall · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Education</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Campus Directional Signs</h3><p>School · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Hospitality</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Restaurant Illuminated Signage</h3><p>Restaurant · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Industrial</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Warehouse Facility Signage</h3><p>Warehouse · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Healthcare</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Hospital Wing Identification</h3><p>Hospital · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Corporate</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Commercial Tower Facade Sign</h3><p>Commercial Building · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Retail</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Vehicle Fleet Wrap</h3><p>Retail Outlet · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Corporate</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Exhibition Stand Build</h3><p>Corporate Office · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Hospitality</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Café Menu &amp; Window Graphics</h3><p>Café · Karama</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Education</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>Reception Acrylic Logo Wall</h3><p>School · Dubai</p></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-image"><span class="sector-tag">Retail</span><span class="img-tag">Photo Placeholder</span></div>
+          <div class="proj-body"><h3>LED Storefront Channel Letters</h3><p>Retail Outlet · Dubai</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">How A Project Runs</div>
+        <h2>Our Process</h2>
+      </div>
+      <div class="process">
+        <div class="process-step"><span class="step-num">01</span><h3>Consultation</h3><p>Site visit and brief.</p></div>
+        <div class="process-step"><span class="step-num">02</span><h3>Design</h3><p>Concepts and material specs.</p></div>
+        <div class="process-step"><span class="step-num">03</span><h3>Approval</h3><p>Client sign-off.</p></div>
+        <div class="process-step"><span class="step-num">04</span><h3>Production</h3><p>In-house fabrication.</p></div>
+        <div class="process-step"><span class="step-num">05</span><h3>Installation</h3><p>On-site by our own crews.</p></div>
+        <div class="process-step"><span class="step-num">06</span><h3>After-Sales Support</h3><p>Maintenance on request.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center;">Start Your Project</div>
+      <h2 style="margin-top:18px;">Let's Build Your Brand Together</h2>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn btn-solid">Request a Free Quote</a>
+        <a href="services.html" class="btn btn-ghost">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <span class="logo-mark">AC</span>
+          <span class="logo-text">Alpha Color<span>Advertising · Dubai</span></span>
+        </div>
+        <p>A leading branding, signage, and printing company in Karama, Dubai — from concept and design through fabrication and installation.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">LED &amp; 3D Signage</a></li>
+          <li><a href="services.html">Vehicle Graphics</a></li>
+          <li><a href="services.html">Office Branding</a></li>
+          <li><a href="services.html">Digital Printing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Karama, Dubai, United Arab Emirates</p>
+        <p style="margin-top:10px;">+971 00 000 0000</p>
+        <p style="margin-top:6px;">info@alphacoloradvertising.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Alpha Color Advertising. All Rights Reserved.</p>
+      <div class="social-row">
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = links.style.display === 'flex';
+      links.style.display = open ? 'none' : 'flex';
+      links.style.cssText += open ? '' : 'position:absolute;top:86px;left:0;right:0;flex-direction:column;background:rgba(18,14,28,.98);padding:26px 32px;gap:20px;border-bottom:1px solid rgba(255,255,255,.08);';
+    });
+  }
+});
+</script>
+
+</body>
+</html>
