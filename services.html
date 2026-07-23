@@ -41,15 +41,15 @@
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
-html{ scroll-behavior:smooth; overflow-x:hidden; }
+html{ scroll-behavior:smooth; }
 body{
   background:var(--ink);
-  overflow-x:hidden;
   color:var(--paper);
   font-family:var(--body);
   font-weight:400;
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
@@ -57,7 +57,7 @@ ul{ list-style:none; }
 ::selection{ background:var(--magenta); color:#fff; }
 :focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; }
 
-.wrap{ width:100%; max-width:var(--container); margin:0 auto; padding:0 32px; }
+.wrap{ max-width:var(--container); margin:0 auto; padding:0 32px; }
 
 .eyebrow{
   font-family:var(--mono);
@@ -126,7 +126,7 @@ p.lead{ color:var(--paper); font-size:1.1rem; font-weight:400; opacity:.92; }
 .header-cta{ display:flex; align-items:center; gap:28px; }
 .header-cta .btn{ padding:12px 24px; }
 
-.nav-toggle{ display:none; width:26px; height:20px; position:relative; background:none; border:none; cursor:pointer; }
+.nav-toggle{ display:none; width:26px; height:20px; position:relative; background:none; border:none; cursor:pointer; z-index:110; }
 .nav-toggle span{ position:absolute; left:0; right:0; height:2px; border-radius:2px; background:var(--paper); }
 .nav-toggle span:nth-child(1){ top:0; }
 .nav-toggle span:nth-child(2){ top:9px; }
@@ -167,11 +167,10 @@ section{ padding:100px 0; }
   aspect-ratio:4/3;
   overflow:hidden;
   display:flex; align-items:flex-end;
-  background:
-    linear-gradient(135deg, rgba(139,92,246,.95), rgba(236,72,153,.9) 55%, rgba(34,211,238,.9));
+  background:linear-gradient(135deg, var(--panel), var(--ink-2)); /* shows while the real photo loads */
 }
 
-/* Illustration — fills the box; carries its own brand-gradient background */
+/* Real photo — drop in service1.jpg ... service13.jpg to replace these placeholders */
 .svc-photo{
   position:absolute; inset:0;
   width:100%; height:100%;
@@ -179,8 +178,7 @@ section{ padding:100px 0; }
   object-fit:cover;
   object-position:center;
   z-index:0;
-  min-width:100%;
-  min-height:100%;
+  background:linear-gradient(135deg, rgba(139,92,246,.25), rgba(34,211,238,.15));
 }
 
 .svc-image::after{
@@ -233,191 +231,33 @@ section{ padding:100px 0; }
 .social-row a{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--stone); text-transform:uppercase; }
 .social-row a:hover{ color:var(--cyan); }
 
-/* ---------- Reveal on scroll ---------- */
+/* ---------- Reveal on scroll (applied per-card, not per-section, so tall
+   single-column stacks on mobile still cross the visibility threshold) ---------- */
 .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
 .reveal.in{ opacity:1; transform:translateY(0); }
 @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
 
 /* ---------- Responsive ---------- */
-@media (max-width:1100px){
-  .nav-links{ gap:22px; }
-  .header-cta{ gap:12px; }
-  .header-cta .btn{ padding:11px 16px; }
-}
-
 @media (max-width:980px){
-  .site-header .wrap{ height:76px; }
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:76px; left:0; right:0;
-    flex-direction:column; align-items:stretch;
-    gap:0; padding:12px 20px 22px;
-    background:rgba(18,14,28,.98);
-    border-bottom:1px solid var(--panel-line);
-    box-shadow:0 18px 40px rgba(0,0,0,.28);
-  }
-  .nav-links.nav-open{ display:flex; }
-  .nav-links a{ width:100%; padding:13px 4px; }
-  .nav-toggle{ display:block; flex:0 0 26px; }
+  .svc-grid{ grid-template-columns:1fr 1fr; }
+  .why-list{ grid-template-columns:1fr 1fr; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:760px){
+  .nav-links{ display:none; }
   .header-cta .btn-ghost{ display:none; }
-  .header-cta{ margin-left:auto; margin-right:18px; }
-  .svc-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .why-list{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .footer-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .page-hero{ padding-top:140px; }
-}
-
-@media (max-width:640px){
-  .wrap{ padding-left:18px; padding-right:18px; }
-  .site-header .wrap{ height:70px; }
-  .logo{ gap:8px; min-width:0; }
-  .logo-img{ height:36px; max-width:90px; object-fit:contain; }
-  .logo-text{ font-size:13px; white-space:nowrap; }
-  .logo-text span{ font-size:7.5px; letter-spacing:.12em; }
-  .nav-links{ top:70px; }
-  .header-cta{ display:none; }
-  .nav-toggle{ margin-left:auto; }
-  .page-hero{ padding:116px 0 48px; }
-  .page-hero h1{ font-size:clamp(2rem,10vw,2.7rem); }
-  .page-hero p{ font-size:1rem; }
-  section{ padding:64px 0; }
-  .section-head{ margin-bottom:36px; }
-  .svc-grid{ grid-template-columns:minmax(0,1fr); gap:18px; }
-  .svc-card{ width:100%; }
-  .svc-image{ aspect-ratio:16/10; }
-  .svc-body{ padding:22px 20px 24px; }
-  .why-list{ grid-template-columns:minmax(0,1fr); gap:24px; }
-  .footer-grid{ grid-template-columns:minmax(0,1fr); gap:34px; }
-  .footer-bottom{ align-items:flex-start; flex-direction:column; }
-  .cta-band{ padding:70px 0; }
-  .cta-band .hero-actions{ flex-direction:column; align-items:stretch; }
-  .cta-band .btn{ justify-content:center; width:100%; }
-}
-
-@media (max-width:380px){
-  .logo-text{ display:none; }
-  .logo-img{ height:38px; max-width:120px; }
-  .wrap{ padding-left:14px; padding-right:14px; }
+  .nav-toggle{ display:block; }
+  .svc-grid{ grid-template-columns:1fr; }
+  .why-list{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; gap:36px; }
+  section{ padding:70px 0; }
+  .page-hero{ padding:150px 0 56px; }
+  .wrap{ padding:0 20px; }
 }
 </style>
+
 </head>
 <body>
-
-<!-- Shared SVG artwork library — original icon illustrations for the services grid below.
-     Nothing here is a photo; it's brand-styled line art built from the site's own palette,
-     so the grid looks complete today. Swap any card's <svg> for a real <img src="images/serviceN.jpg">
-     the moment you have photography — the CSS already supports both. -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-<defs>
-  <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
-  <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
-  <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
-  <linearGradient id="grad4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2c14e"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
-  <linearGradient id="grad5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
-  <linearGradient id="grad6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
-  <linearGradient id="grad7" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#f2c14e"/></linearGradient>
-  <linearGradient id="grad8" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#f2c14e"/></linearGradient>
-  <linearGradient id="grad9" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#f2c14e"/></linearGradient>
-  <linearGradient id="grad10" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
-  <linearGradient id="grad11" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2c14e"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
-  <linearGradient id="grad12" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset=".5" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
-  <linearGradient id="grad13" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
-
-  <pattern id="svc-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-    <path d="M22 0H0V22" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
-  </pattern>
-
-  <g id="icon-vehicle" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6 62 L16 34 Q20 26 30 26 L74 26 Q84 26 88 34 L98 62 Z"/>
-    <path d="M6 62 H98"/>
-    <circle cx="28" cy="62" r="10" fill="#120e1c"/>
-    <circle cx="76" cy="62" r="10" fill="#120e1c"/>
-    <path d="M10 44 Q52 58 94 44" stroke="#f2c14e" stroke-width="4"/>
-  </g>
-
-  <g id="icon-corporate" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="16" y="10" width="48" height="80" rx="2"/>
-    <path d="M24 24h10M40 24h10M24 40h10M40 40h10M24 56h10M40 56h10M24 72h10M40 72h10"/>
-    <path d="M64 46h20v44H64z"/>
-    <circle cx="82" cy="20" r="10" fill="#f2c14e" stroke="none"/>
-  </g>
-
-  <g id="icon-3d" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M28 78 L28 30 L50 18 L72 30 L72 78 Z"/>
-    <path d="M28 30 L50 42 L72 30"/>
-    <path d="M50 42 L50 78"/>
-    <path d="M72 30 L84 24 L84 72 L72 78" stroke="#22d3ee"/>
-  </g>
-
-  <g id="icon-led" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="14" y="30" width="72" height="40" rx="8"/>
-    <circle cx="32" cy="50" r="4" fill="#f2c14e" stroke="none"/>
-    <circle cx="50" cy="50" r="4" fill="#f2c14e" stroke="none"/>
-    <circle cx="68" cy="50" r="4" fill="#f2c14e" stroke="none"/>
-    <path d="M8 24 L14 30M92 24 L86 30M8 76 L14 70M92 76 L86 70" stroke="#22d3ee" stroke-width="4"/>
-  </g>
-
-  <g id="icon-signage" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M50 20 V88"/>
-    <path d="M14 30 H60 L72 42 L60 54 H14 Z"/>
-    <path d="M50 20 h30 L92 32 L80 44 H50" stroke="#ec4899"/>
-  </g>
-
-  <g id="icon-laser" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="18" y="18" width="64" height="64" rx="2"/>
-    <path d="M18 18 L82 82" stroke="#ec4899" stroke-width="4" stroke-dasharray="2 8"/>
-    <path d="M60 18 L88 8" stroke="#22d3ee"/>
-    <circle cx="82" cy="82" r="5" fill="#f2c14e" stroke="none"/>
-  </g>
-
-  <g id="icon-plaque" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="14" y="26" width="72" height="48" rx="4"/>
-    <path d="M22 40h56M22 50h56M22 60h30"/>
-    <circle cx="22" cy="34" r="3" fill="#f2c14e" stroke="none"/>
-    <circle cx="78" cy="34" r="3" fill="#f2c14e" stroke="none"/>
-    <circle cx="22" cy="66" r="3" fill="#f2c14e" stroke="none"/>
-    <circle cx="78" cy="66" r="3" fill="#f2c14e" stroke="none"/>
-  </g>
-
-  <g id="icon-vinyl" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="14" y="14" width="72" height="60" rx="2"/>
-    <path d="M50 14v60M14 44h72"/>
-    <path d="M62 74 Q62 90 78 90 L78 74 Z" stroke="#ec4899"/>
-  </g>
-
-  <g id="icon-office" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="20" y="14" width="60" height="36" rx="2"/>
-    <circle cx="50" cy="32" r="10" stroke="#f2c14e"/>
-    <path d="M14 80 h72 M24 80 V62 h52 v18" />
-  </g>
-
-  <g id="icon-exhibition" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M30 14 Q50 26 70 14 V70 Q50 82 30 70 Z"/>
-    <path d="M30 14 V70 M70 14 V70" stroke="#22d3ee"/>
-    <path d="M14 86 h72" />
-  </g>
-
-  <g id="icon-cards" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="16" y="38" width="52" height="34" rx="4" transform="rotate(-8 42 55)"/>
-    <rect x="24" y="30" width="52" height="34" rx="4" fill="#180f27"/>
-    <path d="M34 42h32M34 50h20" stroke="#f2c14e" stroke-width="3"/>
-  </g>
-
-  <g id="icon-gift" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="18" y="40" width="52" height="40" rx="2"/>
-    <path d="M18 56h52M44 40v40" stroke="#ec4899"/>
-    <path d="M44 40 Q30 24 20 34 Q30 44 44 40 Q58 24 68 34 Q58 44 44 40Z" stroke="#f2c14e"/>
-    <path d="M78 46h16v28H78z" stroke="#22d3ee"/>
-  </g>
-
-  <g id="icon-widefmt" fill="none" stroke="#f8f5ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="14" y="16" width="12" height="60" rx="6" fill="#180f27"/>
-    <path d="M26 22 H80 V80 H26 Z"/>
-    <path d="M36 36h34M36 48h34M36 60h20" stroke="#22d3ee" stroke-width="4"/>
-  </g>
-</defs>
-</svg>
 
 <header class="site-header">
   <div class="wrap">
@@ -452,70 +292,70 @@ section{ padding:100px 0; }
 
   <section>
     <div class="wrap">
-      <div class="svc-grid reveal">
+      <div class="svc-grid">
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Vehicle Graphics illustration"><rect width="400" height="300" fill="url(#grad1)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-vehicle" xlink:href="#icon-vehicle" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">01</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service1.jpg" alt="Vehicle Graphics" class="svc-photo" loading="lazy"><span class="idx-mark">01</span></div>
           <div class="svc-body"><h3>Vehicle Graphics</h3><p>Full and partial wraps, decals, and fleet livery for commercial and individual vehicles.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Corporate Branding illustration"><rect width="400" height="300" fill="url(#grad2)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-corporate" xlink:href="#icon-corporate" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">02</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service2.jpg" alt="Corporate Branding" class="svc-photo" loading="lazy"><span class="idx-mark">02</span></div>
           <div class="svc-body"><h3>Corporate Branding</h3><p>Consistent visual identity applied across offices, storefronts, and collateral.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="3D Signage illustration"><rect width="400" height="300" fill="url(#grad3)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-3d" xlink:href="#icon-3d" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">03</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service3.jpg" alt="3D Signage" class="svc-photo" loading="lazy"><span class="idx-mark">03</span></div>
           <div class="svc-body"><h3>3D Signage</h3><p>Dimensional letters and logos built for depth and presence.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="LED and Flex Face Signs illustration"><rect width="400" height="300" fill="url(#grad4)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-led" xlink:href="#icon-led" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">04</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service4.jpg" alt="LED and Flex Face Signs" class="svc-photo" loading="lazy"><span class="idx-mark">04</span></div>
           <div class="svc-body"><h3>LED &amp; Flex Face Signs</h3><p>Illuminated signage engineered for day and night visibility.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Indoor and Outdoor Signage illustration"><rect width="400" height="300" fill="url(#grad5)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-signage" xlink:href="#icon-signage" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">05</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service5.jpg" alt="Indoor and Outdoor Signage" class="svc-photo" loading="lazy"><span class="idx-mark">05</span></div>
           <div class="svc-body"><h3>Indoor &amp; Outdoor Signage</h3><p>Wayfinding, storefront, and directional signage for any environment.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Acrylic Laser Cutting illustration"><rect width="400" height="300" fill="url(#grad6)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-laser" xlink:href="#icon-laser" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">06</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service6.jpg" alt="Acrylic Laser Cutting" class="svc-photo" loading="lazy"><span class="idx-mark">06</span></div>
           <div class="svc-body"><h3>Acrylic Laser Cutting</h3><p>Precision-cut acrylic panels, letters, and displays.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Steel and Wooden Signs illustration"><rect width="400" height="300" fill="url(#grad7)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-plaque" xlink:href="#icon-plaque" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">07</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service7.jpg" alt="Steel and Wooden Signs" class="svc-photo" loading="lazy"><span class="idx-mark">07</span></div>
           <div class="svc-body"><h3>Steel &amp; Wooden Signs</h3><p>Durable signage for premium interiors and outdoor installations.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Vinyl Graphics illustration"><rect width="400" height="300" fill="url(#grad8)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-vinyl" xlink:href="#icon-vinyl" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">08</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service8.jpg" alt="Vinyl Graphics" class="svc-photo" loading="lazy"><span class="idx-mark">08</span></div>
           <div class="svc-body"><h3>Vinyl Graphics</h3><p>Window films, wall graphics, and surface branding.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Office Branding illustration"><rect width="400" height="300" fill="url(#grad9)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-office" xlink:href="#icon-office" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">09</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service9.jpg" alt="Office Branding" class="svc-photo" loading="lazy"><span class="idx-mark">09</span></div>
           <div class="svc-body"><h3>Office Branding</h3><p>Reception walls, meeting room signage, and interior identity.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Exhibition Displays illustration"><rect width="400" height="300" fill="url(#grad10)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-exhibition" xlink:href="#icon-exhibition" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">10</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service10.jpg" alt="Exhibition Displays" class="svc-photo" loading="lazy"><span class="idx-mark">10</span></div>
           <div class="svc-body"><h3>Exhibition Displays</h3><p>Portable and custom-built stands for trade shows and events.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Business Cards, Letterheads and Stationery illustration"><rect width="400" height="300" fill="url(#grad11)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-cards" xlink:href="#icon-cards" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">11</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service11.jpg" alt="Business Cards, Letterheads and Stationery" class="svc-photo" loading="lazy"><span class="idx-mark">11</span></div>
           <div class="svc-body"><h3>Business Cards, Letterheads &amp; Stationery</h3><p>Premium print collateral that matches your brand standard.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Gift and Offset Printing illustration"><rect width="400" height="300" fill="url(#grad12)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-gift" xlink:href="#icon-gift" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">12</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service12.jpg" alt="Gift and Offset Printing" class="svc-photo" loading="lazy"><span class="idx-mark">12</span></div>
           <div class="svc-body"><h3>Gift &amp; Offset Printing</h3><p>Branded merchandise and high-volume offset print runs.</p></div>
         </div>
 
-        <div class="svc-card">
-          <div class="svc-image"><svg class="svc-photo" viewBox="0 0 400 300" role="img" aria-label="Wide Format Digital Printing illustration"><rect width="400" height="300" fill="url(#grad13)"/><rect width="400" height="300" fill="url(#svc-grid)"/><use href="#icon-widefmt" xlink:href="#icon-widefmt" transform="translate(120,68) scale(1.6)"/></svg><span class="idx-mark">13</span></div>
+        <div class="svc-card reveal">
+          <div class="svc-image"><img src="service13.jpg" alt="Wide Format Digital Printing" class="svc-photo" loading="lazy"><span class="idx-mark">13</span></div>
           <div class="svc-body"><h3>Wide Format Digital Printing</h3><p>Banners, posters, and large-format graphics.</p></div>
         </div>
 
@@ -529,10 +369,10 @@ section{ padding:100px 0; }
         <div class="eyebrow">Why Choose Alpha Color</div>
         <h2>High-Quality Materials, Handled By Experienced Installers</h2>
       </div>
-      <div class="why-list reveal">
-        <div class="why-item"><h3>Custom Designs</h3><p>Nothing off a shelf — every job is specified for your space.</p></div>
-        <div class="why-item"><h3>Fast Turnaround</h3><p>Production scheduling that respects your deadlines.</p></div>
-        <div class="why-item"><h3>Complete Project Management</h3><p>One team, from first sketch to final install.</p></div>
+      <div class="why-list">
+        <div class="why-item reveal"><h3>Custom Designs</h3><p>Nothing off a shelf — every job is specified for your space.</p></div>
+        <div class="why-item reveal"><h3>Fast Turnaround</h3><p>Production scheduling that respects your deadlines.</p></div>
+        <div class="why-item reveal"><h3>Complete Project Management</h3><p>One team, from first sketch to final install.</p></div>
       </div>
     </div>
   </section>
@@ -602,33 +442,29 @@ document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
   if (toggle && links) {
-    toggle.setAttribute('aria-expanded', 'false');
     toggle.addEventListener('click', function () {
-      var isOpen = links.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    links.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
+      var open = links.classList.contains('nav-open');
+      if (open) {
         links.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 980) {
-        links.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
+        links.style.cssText = '';
+      } else {
+        links.classList.add('nav-open');
+        links.style.cssText = 'display:flex;position:absolute;top:86px;left:0;right:0;flex-direction:column;background:rgba(18,14,28,.98);padding:26px 32px;gap:20px;border-bottom:1px solid rgba(255,255,255,.08);';
       }
     });
   }
+
+  // Reveal-on-scroll is now applied per-card (not per-section-wrapper), so a
+  // single-column mobile stack of 13 cards no longer has to satisfy a 15%
+  // visible-area threshold across the whole tall block before anything
+  // appears. Each card fades in independently as it enters the viewport.
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('in'); });
