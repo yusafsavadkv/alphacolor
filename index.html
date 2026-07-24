@@ -3,610 +3,388 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alpha Color Advertising | Signage, Branding &amp; Digital Printing in Dubai, UAE</title>
-<meta name="description" content="Professional signage, vehicle graphics, office branding, acrylic fabrication, LED signs, and digital printing in Karama, Dubai and across the UAE.">
-
+<meta name="theme-color" content="#120e1c">
+<title>Alpha Color Advertising | Branding, Signage & Printing Dubai</title>
+<meta name="description" content="Alpha Color Advertising provides vehicle graphics, premium signage, office branding and commercial printing services in Dubai, UAE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* =========================================================
-   ALPHA COLOR ADVERTISING — Homepage
-   Direction: "Luxury Neon" — a dark jewel-tone base with a
-   violet → magenta → cyan gradient signature, the way an
-   illuminated sign reads against the Dubai night sky.
-   Gold is kept only as a fine premium trim, not the hero color.
-   ========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
 :root{
-  --ink:        #120e1c;
-  --ink-2:      #180f27;
-  --panel:      #1d1530;
-  --panel-line: rgba(255,255,255,.08);
-
-  --violet:     #8b5cf6;
-  --magenta:    #ec4899;
-  --cyan:       #22d3ee;
-  --gold:       #f2c14e;
-
-  --gradient:   linear-gradient(100deg, var(--violet) 0%, var(--magenta) 52%, var(--cyan) 100%);
-
-  --paper:      #f8f5ff;
-  --stone:      #b6adcf;
-  --stone-dim:  #7c7396;
-
-  --display: 'Fraunces', Georgia, serif;
-  --body:    'Manrope', -apple-system, sans-serif;
-  --mono:    'IBM Plex Mono', monospace;
-
-  --radius: 6px;
-  --container: 1180px;
+  --ink:#100b19;
+  --ink-2:#171024;
+  --panel:#1d1530;
+  --panel-2:#24183a;
+  --paper:#faf7ff;
+  --text:#bdb4d3;
+  --muted:#817797;
+  --violet:#8b5cf6;
+  --pink:#ec4899;
+  --cyan:#22d3ee;
+  --gold:#f2c14e;
+  --line:rgba(255,255,255,.09);
+  --gradient:linear-gradient(100deg,var(--violet),var(--pink) 52%,var(--cyan));
+  --display:'Fraunces',Georgia,serif;
+  --body:'Manrope',Arial,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --container:1180px;
+  --header:84px;
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header);overflow-x:hidden}
+body{font-family:var(--body);background:var(--ink);color:var(--paper);line-height:1.7;overflow-x:hidden}
+body.menu-open{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea{font:inherit}
+section{padding:105px 0;position:relative}
+.container{width:min(100% - 64px,var(--container));margin:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:500 11px var(--mono);letter-spacing:.18em;text-transform:uppercase;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow:before{content:"";width:24px;height:2px;background:var(--gradient)}
+h1,h2,h3{font-family:var(--display);line-height:1.12;letter-spacing:-.02em}
+h1{font-size:clamp(2.65rem,6vw,5.2rem);max-width:11ch}
+h2{font-size:clamp(2rem,4vw,3.25rem)}
+h3{font-size:1.28rem}
+p{color:var(--text)}
+.section-head{max-width:720px;margin-bottom:54px}
+.section-head h2{margin:16px 0 18px}
+.section-head p{font-size:1.02rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:13px 26px;border-radius:7px;border:1px solid transparent;font-weight:700;font-size:14px;transition:.3s ease;cursor:pointer}
+.btn-primary{background:var(--gradient);color:#160a22;background-size:170% 170%}
+.btn-primary:hover{background-position:100% 0;transform:translateY(-2px);box-shadow:0 15px 35px rgba(236,72,153,.28)}
+.btn-outline{border-color:var(--line);background:rgba(255,255,255,.035)}
+.btn-outline:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
 
-*{ box-sizing:border-box; margin:0; padding:0; }
-html{ scroll-behavior:smooth; }
-body{
-  background:var(--ink);
-  color:var(--paper);
-  font-family:var(--body);
-  font-weight:400;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
+/* Header */
+.header{height:var(--header);position:fixed;z-index:999;inset:0 0 auto;background:rgba(16,11,25,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.header-inner{width:min(100% - 48px,var(--container));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+.brand img{width:auto;height:47px;object-fit:contain}
+.brand-name{font:600 17px/1.1 var(--display)}
+.brand-name small{display:block;margin-top:5px;font:400 9px var(--mono);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{position:relative;padding:9px 0;font-size:13px;font-weight:600;color:var(--text);transition:.25s}
+.nav a:after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--gradient);transform:scaleX(0);transform-origin:center;transition:.25s}
+.nav a:hover,.nav a.active{color:var(--paper)}
+.nav a:hover:after,.nav a.active:after{transform:scaleX(1)}
+.nav a.services-link{padding:9px 14px;border:1px solid rgba(236,72,153,.32);border-radius:999px;background:rgba(236,72,153,.07)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.header-phone{font-size:12px;color:var(--text);white-space:nowrap}
+.menu-btn{display:none;width:42px;height:42px;background:transparent;border:1px solid var(--line);border-radius:7px;position:relative;cursor:pointer}
+.menu-btn span{position:absolute;width:20px;height:2px;background:var(--paper);left:10px;transition:.3s}
+.menu-btn span:nth-child(1){top:13px}.menu-btn span:nth-child(2){top:20px}.menu-btn span:nth-child(3){top:27px}
+.menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Hero */
+.hero{min-height:100vh;padding:calc(var(--header) + 85px) 0 80px;display:flex;align-items:center;overflow:hidden;background:radial-gradient(circle at 82% 10%,rgba(34,211,238,.18),transparent 30%),radial-gradient(circle at 10% 55%,rgba(139,92,246,.22),transparent 35%),var(--ink)}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-130px;top:80px;box-shadow:0 0 0 75px rgba(255,255,255,.018),0 0 0 150px rgba(255,255,255,.012)}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
+.hero-copy h1{margin:20px 0 24px}
+.hero-copy h1 span{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy p{font-size:1.08rem;max-width:610px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:52px}
+.metric{padding:20px;border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:10px}
+.metric strong{display:block;font:600 1.85rem var(--display)}
+.metric span{font-size:12px;color:var(--muted)}
+.hero-visual{position:relative;min-height:520px}
+.visual-main{position:absolute;inset:20px 0 0 44px;border-radius:22px;background:linear-gradient(145deg,rgba(139,92,246,.8),rgba(236,72,153,.64) 56%,rgba(34,211,238,.72));padding:1px;box-shadow:0 35px 90px rgba(0,0,0,.42)}
+.visual-inner{height:100%;border-radius:21px;background:linear-gradient(145deg,#26173d,#14101e);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.visual-inner:before{content:"ALPHA";font:600 clamp(4rem,8vw,7rem) var(--display);letter-spacing:.07em;color:rgba(255,255,255,.06);transform:rotate(-12deg)}
+.visual-card{position:absolute;background:rgba(20,14,31,.88);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:13px;padding:18px 20px;box-shadow:0 18px 45px rgba(0,0,0,.25)}
+.visual-card strong{display:block;font-size:14px}.visual-card span{font-size:11px;color:var(--muted)}
+.vc1{top:0;left:0}.vc2{right:-15px;bottom:40px}.vc3{left:0;bottom:0}
+
+/* About */
+.about{background:var(--ink-2)}
+.about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:75px;align-items:center}
+.about-art{min-height:540px;border:1px solid var(--line);border-radius:20px;background:radial-gradient(circle at 30% 25%,rgba(236,72,153,.35),transparent 30%),radial-gradient(circle at 75% 75%,rgba(34,211,238,.28),transparent 28%),var(--panel);display:grid;place-items:center;position:relative;overflow:hidden}
+.about-art:before,.about-art:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.08);border-radius:50%}.about-art:before{width:350px;height:350px}.about-art:after{width:230px;height:230px}
+.about-art span{position:relative;z-index:2;font:600 4rem var(--display);background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-copy h2{margin:16px 0 22px}.about-copy p+p{margin-top:16px}
+.about-points{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.about-point{padding:20px;border-left:2px solid var(--pink);background:rgba(255,255,255,.025)}
+.about-point strong{display:block;margin-bottom:6px}.about-point span{font-size:13px;color:var(--text)}
+
+/* Services */
+.services{background:linear-gradient(180deg,var(--ink),#120c1d)}
+.services:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0,rgba(139,92,246,.13),transparent 34%);pointer-events:none}
+.services .container{position:relative}
+.services .section-head{max-width:800px}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-card{min-height:245px;padding:30px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.048),rgba(255,255,255,.018));position:relative;overflow:hidden;transition:.35s}
+.service-card:before{content:"";position:absolute;width:140px;height:140px;border-radius:50%;right:-60px;top:-60px;background:var(--gradient);opacity:.08;transition:.35s}
+.service-card:hover{transform:translateY(-7px);border-color:rgba(236,72,153,.45);box-shadow:0 25px 60px rgba(0,0,0,.28)}
+.service-card:hover:before{opacity:.18;transform:scale(1.15)}
+.service-icon{width:54px;height:54px;border-radius:12px;display:grid;place-items:center;background:var(--gradient);color:#170c20;font-weight:800;font-size:19px;margin-bottom:24px}
+.service-card h3{margin-bottom:11px}.service-card p{font-size:.9rem}
+.service-no{position:absolute;right:20px;bottom:12px;font:500 2.4rem var(--display);color:rgba(255,255,255,.045)}
+
+/* Projects */
+.projects{background:var(--ink-2)}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.project-card{border-radius:15px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:.35s}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.3)}
+.project-image{aspect-ratio:4/3;position:relative;overflow:hidden;background:linear-gradient(145deg,#291a42,#181020);display:grid;place-items:center}
+.project-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.image-placeholder{position:relative;z-index:1;text-align:center;color:var(--muted);padding:20px}
+.image-placeholder strong{display:block;color:var(--paper);font-size:14px;margin-bottom:5px}.image-placeholder span{font-size:11px}
+.project-image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(16,11,25,.68));pointer-events:none}
+.project-info{padding:24px}.project-info span{display:block;font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:9px}.project-info h3{font-size:1.16rem}
+
+/* Founder */
+.founder{background:var(--ink)}
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.founder-photo{min-height:590px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#25173b,#15101e);position:relative;display:grid;place-items:center}
+.founder-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.founder-placeholder{text-align:center;color:var(--muted);padding:30px}.founder-placeholder strong{display:block;color:var(--paper);font-size:16px;margin-bottom:8px}.founder-placeholder span{font-size:12px}
+.founder-copy blockquote{font:500 clamp(1.55rem,3vw,2.35rem)/1.45 var(--display);margin:22px 0 28px;color:var(--paper)}
+.founder-copy blockquote:before{content:'“';display:block;font-size:4rem;line-height:.6;color:var(--pink)}
+.signature strong{display:block;font-size:16px}.signature span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em}
+
+/* Contact */
+.contact{background:radial-gradient(circle at 10% 90%,rgba(139,92,246,.16),transparent 30%),var(--ink-2)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+.contact-copy h2{margin:16px 0 20px}.contact-list{margin-top:32px;display:grid;gap:14px}
+.contact-item{padding:20px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025)}
+.contact-item small{display:block;font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}.contact-item a,.contact-item span{font-weight:600}
+.contact-form{padding:34px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:var(--text)}
+.field input,.field textarea{width:100%;border:1px solid var(--line);background:#15101f;color:var(--paper);border-radius:7px;padding:14px 15px;outline:none;transition:.25s}.field textarea{min-height:135px;resize:vertical}.field input:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.08)}
+.contact-form .btn{margin-top:18px;width:100%}
+
+/* Footer */
+.footer{padding:75px 0 28px;background:#0c0812;border-top:1px solid var(--line)}
+.footer-grid{display:grid;grid-template-columns:1.45fr .8fr 1fr 1.1fr;gap:46px;padding-bottom:50px}
+.footer-brand{margin-bottom:18px}.footer h4{font:500 10px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}.footer p,.footer a{font-size:13px;color:var(--text)}
+.footer li+li{margin-top:9px}.footer a:hover{color:var(--cyan)}
+.footer-bottom{padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-bottom p{font:400 10px var(--mono);color:var(--muted)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.75s ease}.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1080px){
+  .nav{gap:16px}.header-phone{display:none}.hero-grid{gap:40px}.service-grid,.project-grid{grid-template-columns:repeat(2,1fr)}
 }
-img{ max-width:100%; display:block; }
-a{ color:inherit; text-decoration:none; }
-ul{ list-style:none; }
-::selection{ background:var(--magenta); color:#fff; }
-:focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; }
-
-.wrap{ max-width:var(--container); margin:0 auto; padding:0 32px; }
-
-.eyebrow{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background:var(--gradient);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  font-weight:500;
+@media(max-width:900px){
+  :root{--header:74px}.header-inner{width:min(100% - 32px,var(--container))}.brand img{height:42px}.brand-name{font-size:15px}
+  .menu-btn{display:block}.header-actions .btn{display:none}
+  .nav{position:fixed;top:var(--header);left:0;right:0;max-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0 24px;background:rgba(16,11,25,.98);border-bottom:1px solid var(--line);transition:max-height .4s ease,padding .4s ease}
+  .nav.open{max-height:520px;padding:16px 24px 24px}.nav a{padding:13px 0;border-bottom:1px solid var(--line)}.nav a.services-link{border-radius:0;background:transparent;border-left:0;border-right:0;border-top:0}
+  .hero{min-height:auto}.hero-grid,.about-grid,.founder-grid,.contact-grid{grid-template-columns:1fr}.hero-copy{order:1}.hero-visual{order:2;min-height:460px;max-width:620px;width:100%;margin:auto}.about-art{min-height:430px}.founder-photo{min-height:520px;max-width:560px;width:100%;margin:auto}.footer-grid{grid-template-columns:1fr 1fr}
 }
-.eyebrow::before{ content:""; width:22px; height:2px; background:var(--gradient); border-radius:2px; }
-
-h1,h2,h3{ font-family:var(--display); font-weight:600; letter-spacing:-.01em; color:var(--paper); }
-h1{ font-size:clamp(2.6rem,5.4vw,4.6rem); line-height:1.05; }
-h2{ font-size:clamp(1.9rem,3.4vw,2.7rem); line-height:1.15; }
-h3{ font-size:1.35rem; font-weight:600; }
-p{ color:var(--stone); font-weight:400; }
-p.lead{ color:var(--paper); font-size:1.14rem; font-weight:400; opacity:.92; }
-
-.btn{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:16px 32px;
-  font-family:var(--body); font-weight:600; font-size:14px;
-  border-radius:var(--radius);
-  border:1px solid transparent;
-  transition:all .35s ease;
-  cursor:pointer;
-  white-space:nowrap;
-  position:relative;
-  overflow:hidden;
-}
-.btn-solid{
-  background:var(--gradient);
-  background-size:180% 180%;
-  color:#160a22;
-}
-.btn-solid::before{
-  content:"";
-  position:absolute; top:0; left:-60%; width:40%; height:100%;
-  background:linear-gradient(115deg, transparent, rgba(255,255,255,.55), transparent);
-  transform:skewX(-18deg);
-  transition:left .65s ease;
-}
-.btn-solid:hover::before{ left:130%; }
-.btn-solid:hover{ background-position:100% 0; box-shadow:0 8px 30px rgba(236,72,153,.35); transform:translateY(-2px); }
-.btn-ghost{ background:rgba(255,255,255,.03); color:var(--paper); border-color:var(--panel-line); }
-.btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); box-shadow:0 0 18px rgba(34,211,238,.18); }
-
-/* ---------- Header ---------- */
-.site-header{
-  position:fixed; top:0; left:0; right:0; z-index:100;
-  background:rgba(18,14,28,.82);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--panel-line);
-}
-.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; height:86px; }
-.logo{ display:flex; align-items:center; gap:12px; }
-
-/* Logo mark: swap the <span class="logo-mark">AC</span> block below for
-   <img src="logo.png" alt="Alpha Color Advertising" class="logo-img"> once the logo file is supplied. */
-.logo-img{ height:44px; width:auto; flex-shrink:0; }
-.logo-mark{
-  width:44px; height:44px;
-  border-radius:10px;
-  background:var(--gradient);
-  background-size:180% 180%;
-  display:flex; align-items:center; justify-content:center;
-  font-family:var(--display); font-size:16px; font-weight:600; color:#160a22;
-  flex-shrink:0;
-  animation:markPulse 5s ease-in-out infinite;
-}
-@keyframes markPulse{
-  0%,100%{ background-position:0% 50%; box-shadow:0 0 0 rgba(139,92,246,0); }
-  50%{ background-position:100% 50%; box-shadow:0 0 18px rgba(236,72,153,.45); }
-}
-.logo-text{ font-family:var(--display); font-size:16px; letter-spacing:.01em; line-height:1.15; font-weight:600; }
-.logo-text span{ display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; color:var(--stone-dim); margin-top:3px; font-weight:400; }
-
-.nav-links{ display:flex; align-items:center; gap:38px; }
-.nav-links a{
-  font-family:var(--body); font-weight:500; font-size:14px;
-  color:var(--stone); position:relative; padding-bottom:6px; transition:color .25s ease;
-}
-.nav-links a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--gradient); border-radius:2px; transition:width .3s ease; }
-.nav-links a:hover, .nav-links a.active{ color:var(--paper); }
-.nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
-
-.header-cta{ display:flex; align-items:center; gap:28px; }
-.header-cta .btn{ padding:12px 24px; }
-
-.nav-toggle{ display:none; width:26px; height:20px; position:relative; background:none; border:none; cursor:pointer; }
-.nav-toggle span{ position:absolute; left:0; right:0; height:2px; border-radius:2px; background:var(--paper); transition:transform .3s ease, opacity .3s ease; }
-.nav-toggle span:nth-child(1){ top:0; }
-.nav-toggle span:nth-child(2){ top:9px; }
-.nav-toggle span:nth-child(3){ top:18px; }
-.nav-toggle.open span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2){ opacity:0; }
-.nav-toggle.open span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
-
-/* ---------- Hero ---------- */
-.hero{
-  position:relative; padding:186px 0 100px; overflow:hidden;
-  background:var(--ink);
-}
-.hero-glow{
-  position:absolute; inset:0; z-index:0; pointer-events:none;
-  background:
-    radial-gradient(ellipse 60% 50% at var(--gx,15%) var(--gy,-10%), rgba(139,92,246,.35), transparent 60%),
-    radial-gradient(ellipse 50% 45% at 100% 10%, rgba(34,211,238,.22), transparent 60%),
-    radial-gradient(ellipse 40% 40% at 60% 90%, rgba(236,72,153,.16), transparent 60%);
-  transition:background-position .6s ease;
-}
-.hero .wrap{ position:relative; z-index:1; }
-.hero-tag{ margin-bottom:26px; }
-
-.glow-title{ font-family:var(--display); font-size:clamp(2.6rem,5.6vw,4.8rem); line-height:1.06; color:var(--paper); max-width:16ch; margin-bottom:26px; }
-.glow-title em{
-  font-style:normal;
-  background:var(--gradient);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  filter:drop-shadow(0 0 26px rgba(139,92,246,.35));
-  animation:signOn 3s ease-out 1, hueDrift 8s ease-in-out infinite 3s;
-}
-@keyframes signOn{
-  0%{ opacity:.15; filter:none; }
-  10%{ opacity:1; filter:drop-shadow(0 0 18px rgba(236,72,153,.4)); }
-  14%{ opacity:.4; filter:none; }
-  20%{ opacity:1; filter:drop-shadow(0 0 26px rgba(139,92,246,.4)); }
-  100%{ opacity:1; filter:drop-shadow(0 0 26px rgba(139,92,246,.35)); }
-}
-@keyframes hueDrift{
-  0%,100%{ background-position:0% 50%; }
-  50%{ background-position:100% 50%; }
-}
-@media (prefers-reduced-motion: reduce){ .glow-title em{ animation:none; } }
-
-.hero p.lead{ max-width:54ch; margin-bottom:38px; }
-.hero-actions{ display:flex; gap:18px; flex-wrap:wrap; }
-
-/* ---------- Ticker ---------- */
-.ticker{ border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line); background:var(--panel); overflow:hidden; padding:16px 0; }
-.ticker-track{ display:flex; white-space:nowrap; width:max-content; animation:scrollTicker 42s linear infinite; }
-.ticker:hover .ticker-track{ animation-play-state:paused; }
-.ticker-track span{ font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--stone); padding:0 28px; border-right:1px solid var(--panel-line); }
-.ticker-track span::before{ content:"◆ "; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
-@keyframes scrollTicker{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-@media (prefers-reduced-motion: reduce){ .ticker-track{ animation:none; overflow-x:auto; } }
-
-/* ---------- Sections ---------- */
-section{ padding:110px 0; }
-.section-alt{ background:var(--ink-2); }
-.section-head{ max-width:640px; margin-bottom:56px; }
-.section-head h2{ margin-top:16px; }
-
-.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
-.stat-panel{
-  border:1px solid var(--panel-line); border-radius:var(--radius);
-  padding:32px 34px; background:var(--panel);
-  position:relative; overflow:hidden;
-  transition:border-color .3s ease, transform .3s ease;
-}
-.stat-panel:hover{ border-color:rgba(236,72,153,.4); transform:translateX(4px); }
-.stat-panel::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gradient); }
-.stat-panel + .stat-panel{ margin-top:18px; }
-.stat-panel .num{
-  font-family:var(--display); font-size:2.2rem; font-weight:600;
-  background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
-  display:block; margin-bottom:6px;
-}
-.stat-panel .label{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--stone); }
-
-.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.svc-card{
-  background:var(--panel); border:1px solid var(--panel-line); border-radius:var(--radius);
-  padding:36px 30px; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  position:relative;
-  transform-style:preserve-3d;
-  will-change:transform;
-}
-.svc-card:hover{ border-color:transparent; box-shadow:0 0 0 1px var(--magenta), 0 20px 46px rgba(139,92,246,.22); }
-.svc-card .idx{
-  font-family:var(--mono); font-size:11px; letter-spacing:.1em;
-  background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600;
-}
-.svc-card h3{ margin:16px 0 12px; font-size:1.16rem; }
-.svc-card p{ font-size:.94rem; }
-@media (prefers-reduced-motion: reduce){ .svc-card{ transform:none !important; } }
-
-.why-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
-.why-item{ border-top:2px solid; border-image:var(--gradient) 1; padding-top:20px; transition:transform .3s ease; }
-.why-item:hover{ transform:translateY(-3px); }
-.why-item h3{ font-size:1.05rem; margin-bottom:8px; color:var(--paper); }
-.why-item p{ font-size:.92rem; }
-
-.process{ display:flex; justify-content:space-between; gap:14px; position:relative; }
-.process::before{ content:""; position:absolute; top:17px; left:0; right:0; height:2px; background:var(--gradient); opacity:.35; }
-.process-step{ flex:1; text-align:left; position:relative; }
-.process-step .step-num{
-  width:34px; height:34px; border-radius:50%;
-  background:var(--panel); border:1px solid var(--panel-line); color:var(--paper);
-  font-family:var(--mono); font-size:12px; font-weight:500;
-  display:flex; align-items:center; justify-content:center;
-  position:relative; z-index:1; margin-bottom:16px;
-  transition:box-shadow .3s ease, transform .3s ease;
-}
-.process-step:hover .step-num{ transform:scale(1.12); }
-.process-step:nth-child(1) .step-num{ box-shadow:0 0 0 2px var(--violet); }
-.process-step:nth-child(2) .step-num{ box-shadow:0 0 0 2px var(--violet); }
-.process-step:nth-child(3) .step-num{ box-shadow:0 0 0 2px var(--magenta); }
-.process-step:nth-child(4) .step-num{ box-shadow:0 0 0 2px var(--magenta); }
-.process-step:nth-child(5) .step-num{ box-shadow:0 0 0 2px var(--cyan); }
-.process-step:nth-child(6) .step-num{ box-shadow:0 0 0 2px var(--cyan); }
-.process-step h3{ font-size:.98rem; margin-bottom:6px; }
-.process-step p{ font-size:.86rem; }
-
-.cta-band{
-  position:relative; text-align:center; padding:100px 0;
-  background:
-    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(236,72,153,.18), transparent 65%),
-    var(--ink-2);
-  border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line);
-}
-.cta-band h2{ max-width:22ch; margin:0 auto 30px; }
-.cta-band .hero-actions{ justify-content:center; }
-
-/* ---------- Footer ---------- */
-.site-footer{ background:var(--ink-2); border-top:1px solid var(--panel-line); padding:80px 0 30px; }
-.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.1fr; gap:50px; padding-bottom:60px; }
-.footer-col h4{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:500; }
-.footer-col p{ font-size:.9rem; }
-.footer-col ul li{ margin-bottom:11px; }
-.footer-col ul li a{ font-size:.9rem; color:var(--stone); transition:color .25s ease; }
-.footer-col ul li a:hover{ color:var(--cyan); }
-.footer-logo{ display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-
-.footer-bottom{ border-top:1px solid var(--panel-line); padding-top:26px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-.footer-bottom p{ font-family:var(--mono); font-size:11px; color:var(--stone-dim); letter-spacing:.04em; }
-.social-row{ display:flex; gap:16px; }
-.social-row a{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--stone); text-transform:uppercase; }
-.social-row a:hover{ color:var(--cyan); }
-
-/* ---------- Reveal on scroll ---------- */
-.reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
-.reveal.in{ opacity:1; transform:translateY(0); }
-@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
-
-/* ---------- Responsive ---------- */
-@media (max-width:980px){
-  .two-col{ grid-template-columns:1fr; gap:40px; }
-  .grid-3{ grid-template-columns:1fr 1fr; }
-  .why-list{ grid-template-columns:1fr 1fr; }
-  .footer-grid{ grid-template-columns:1fr 1fr; }
-  .process{ flex-wrap:wrap; }
-  .process::before{ display:none; }
-  .process-step{ flex:1 1 45%; }
-}
-@media (max-width:760px){
-  .nav-links, .header-cta .btn-ghost{ display:none; }
-  .nav-toggle{ display:block; }
-  .grid-3{ grid-template-columns:1fr; }
-  .why-list{ grid-template-columns:1fr; }
-  .footer-grid{ grid-template-columns:1fr; gap:36px; }
-  section{ padding:76px 0; }
-  .hero{ padding:150px 0 60px; }
+@media(max-width:620px){
+  section{padding:76px 0}.container{width:min(100% - 36px,var(--container))}.hero{padding:calc(var(--header) + 55px) 0 70px}.hero-copy p{font-size:.98rem}.hero-buttons{display:grid}.hero-buttons .btn{width:100%}.hero-metrics{grid-template-columns:1fr}.hero-visual{min-height:360px}.visual-main{inset:12px 0 0 18px}.visual-card{padding:12px 14px}.vc2{right:0}.vc3{display:none}
+  .about-points,.service-grid,.project-grid,.form-grid,.footer-grid{grid-template-columns:1fr}.section-head{margin-bottom:38px}.service-card{min-height:auto;padding:25px}.project-info{padding:20px}.founder-photo{min-height:420px}.contact-form{padding:23px}.footer{padding-top:60px}.footer-bottom{flex-direction:column}
 }
 </style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="wrap">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Alpha Color Advertising" class="logo-img">
-      <span class="logo-text">Alpha Color<span>Advertising · Dubai</span></span>
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="#home" aria-label="Alpha Color Advertising home">
+      <img src="logo.png" alt="Alpha Color Advertising logo">
+      <span class="brand-name">Alpha Color<small>Advertising · Dubai</small></span>
     </a>
-    <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About Us</a>
+      <a href="#services" class="nav-link services-link">Services</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#founder" class="nav-link">Founder</a>
+      <a href="#contact" class="nav-link">Contact Us</a>
     </nav>
-    <div class="header-cta">
-      <a href="tel:+971544007790" class="btn btn-ghost">+971 54 400 7790</a>
-      <a href="contact.html" class="btn btn-solid">Request a Quote</a>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+971544007790">+971 544007790</a>
+      <a class="btn btn-primary" href="#contact">Request a Quote</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
-    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <main>
-
-  <section class="hero" id="hero">
-    <div class="hero-glow" id="heroGlow"></div>
-    <div class="wrap">
-      <div class="hero-tag eyebrow">Karama, Dubai · Since Concept To Installation</div>
-      <h1 class="glow-title">Transform Your Brand Into a <em>Powerful Visual Experience</em></h1>
-      <p class="lead">Alpha Color Advertising is a leading branding, signage, and printing company in Dubai delivering innovative visual communication solutions — from illuminated channel letters to full corporate rebrands.</p>
-      <div class="hero-actions">
-        <a href="contact.html" class="btn btn-solid">Request a Free Quote</a>
-        <a href="projects.html" class="btn btn-ghost">View Our Projects</a>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Branding Built to Be Seen</span>
+      <h1>We Turn Ideas Into <span>Powerful Visual Experiences.</span></h1>
+      <p>Alpha Color Advertising delivers premium signage, vehicle graphics, corporate branding, exhibition solutions, and commercial printing across Dubai.</p>
+      <div class="hero-buttons">
+        <a href="#services" class="btn btn-primary">Explore Our Services</a>
+        <a href="#projects" class="btn btn-outline">View Recent Projects</a>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric"><strong>15+</strong><span>Specialized Services</span></div>
+        <div class="metric"><strong>360°</strong><span>Design to Installation</span></div>
+        <div class="metric"><strong>UAE</strong><span>Professional Project Support</span></div>
       </div>
     </div>
-  </section>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Vehicle Graphics</span><span>3D Signage</span><span>LED &amp; Flex Face Signs</span><span>Acrylic Laser Cutting</span><span>Office Branding</span><span>Exhibition Displays</span><span>Wide Format Printing</span>
-      <span>Vehicle Graphics</span><span>3D Signage</span><span>LED &amp; Flex Face Signs</span><span>Acrylic Laser Cutting</span><span>Office Branding</span><span>Exhibition Displays</span><span>Wide Format Printing</span>
+    <div class="hero-visual reveal" aria-hidden="true">
+      <div class="visual-main"><div class="visual-inner"></div></div>
+      <div class="visual-card vc1"><strong>Premium Signage</strong><span>Designed for impact</span></div>
+      <div class="visual-card vc2"><strong>Vehicle Branding</strong><span>Your moving billboard</span></div>
+      <div class="visual-card vc3"><strong>Digital Printing</strong><span>Sharp, vibrant results</span></div>
     </div>
   </div>
+</section>
 
-  <section>
-    <div class="wrap two-col">
-      <div class="reveal">
-        <div class="eyebrow">About Alpha Color</div>
-        <h2 style="margin-top:16px;">Creative Branding Experts in Dubai</h2>
-        <p style="margin-top:20px;">With years of industry experience, we provide complete branding and advertising solutions for businesses across retail, hospitality, healthcare, education, real estate, and corporate sectors. Every project is managed from concept and design through fabrication and installation, ensuring consistent quality and timely delivery.</p>
-        <p style="margin-top:16px;">Our mission is to build memorable brands through innovative signage, premium printing, and exceptional customer service.</p>
-        <a href="about.html" class="btn btn-ghost" style="margin-top:30px;">More About Us</a>
-      </div>
-      <div class="reveal">
-        <div class="stat-panel">
-          <span class="num" data-count="13" data-suffix="+">0</span>
-          <span class="label">Core Service Lines — Signage To Stationery</span>
-        </div>
-        <div class="stat-panel">
-          <span class="num" data-count="6">0</span>
-          <span class="label">Sectors Served — Retail To Corporate</span>
-        </div>
-        <div class="stat-panel">
-          <span class="num">01–06</span>
-          <span class="label">A Managed Process, Concept To After-Sales</span>
-        </div>
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-art reveal"><span>AC</span></div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">About Alpha Color</span>
+      <h2>Complete Branding and Printing Solutions Under One Roof.</h2>
+      <p>Alpha Color Advertising is a Dubai-based branding, signage, and printing company helping businesses create a strong and professional visual presence.</p>
+      <p>From the first concept to fabrication and final installation, our team focuses on quality materials, clean finishing, timely execution, and dependable service.</p>
+      <div class="about-points">
+        <div class="about-point"><strong>Creative Expertise</strong><span>Brand-focused ideas developed for every space and business.</span></div>
+        <div class="about-point"><strong>Complete Execution</strong><span>Design, production, installation, and after-service support.</span></div>
+        <div class="about-point"><strong>Quality Materials</strong><span>Durable materials selected for performance and appearance.</span></div>
+        <div class="about-point"><strong>Reliable Delivery</strong><span>Projects managed carefully to meet quality and timelines.</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section-alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">What We Build</div>
-        <h2>Core Services</h2>
-      </div>
-      <div class="grid-3 reveal">
-        <div class="svc-card"><span class="idx">01</span><h3>Vehicle Graphics</h3><p>Fleet wraps and decals for commercial and individual vehicles.</p></div>
-        <div class="svc-card"><span class="idx">02</span><h3>3D &amp; LED Signage</h3><p>Illuminated channel letters and flex-face signs built to last.</p></div>
-        <div class="svc-card"><span class="idx">03</span><h3>Corporate &amp; Office Branding</h3><p>Reception walls, wayfinding, and interior identity systems.</p></div>
-        <div class="svc-card"><span class="idx">04</span><h3>Acrylic Laser Cutting</h3><p>Precision-cut acrylic, steel, and wooden signage elements.</p></div>
-        <div class="svc-card"><span class="idx">05</span><h3>Exhibition Displays</h3><p>Portable and built-in stands for events and trade shows.</p></div>
-        <div class="svc-card"><span class="idx">06</span><h3>Wide Format Printing</h3><p>Business cards, letterheads, offset and gift printing.</p></div>
-      </div>
-      <div style="text-align:center;margin-top:50px;">
-        <a href="services.html" class="btn btn-ghost">View All Services</a>
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Services</span>
+      <h2>12 Premium Services Designed to Make Your Brand Stand Out.</h2>
+      <p>Professional branding, signage, printing, and display solutions customized for offices, retail stores, vehicles, exhibitions, and commercial spaces.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card reveal"><div class="service-icon">VG</div><h3>Vehicle Graphics</h3><p>Full wraps, partial wraps, fleet branding, decals, and custom vehicle graphics that turn every journey into brand exposure.</p><span class="service-no">01</span></article>
+      <article class="service-card reveal"><div class="service-icon">3D</div><h3>3D Signages</h3><p>Premium dimensional letters and logos created for receptions, storefronts, offices, and commercial building facades.</p><span class="service-no">02</span></article>
+      <article class="service-card reveal"><div class="service-icon">LED</div><h3>LED Signages</h3><p>Bright, durable, and energy-efficient illuminated signs designed to maximize visibility during both day and night.</p><span class="service-no">03</span></article>
+      <article class="service-card reveal"><div class="service-icon">AC</div><h3>Acrylic Laser Cutting</h3><p>Precision-cut acrylic letters, panels, displays, nameplates, and decorative elements with clean professional finishing.</p><span class="service-no">04</span></article>
+      <article class="service-card reveal"><div class="service-icon">IS</div><h3>Indoor Signage</h3><p>Reception signs, room signs, wall logos, directional signs, and branded interior elements for professional spaces.</p><span class="service-no">05</span></article>
+      <article class="service-card reveal"><div class="service-icon">OS</div><h3>Outdoor Signage</h3><p>Durable storefront, building, directional, and promotional signs manufactured for strong outdoor performance.</p><span class="service-no">06</span></article>
+      <article class="service-card reveal"><div class="service-icon">VG</div><h3>Vinyl Graphics</h3><p>Window films, wall graphics, stickers, frosted vinyl, and surface branding for retail and corporate environments.</p><span class="service-no">07</span></article>
+      <article class="service-card reveal"><div class="service-icon">WP</div><h3>Wide-Format Printing</h3><p>High-resolution banners, posters, backdrops, stickers, and large promotional graphics with vibrant color output.</p><span class="service-no">08</span></article>
+      <article class="service-card reveal"><div class="service-icon">OB</div><h3>Office Branding</h3><p>Complete office transformation through reception branding, glass graphics, wall displays, and branded environments.</p><span class="service-no">09</span></article>
+      <article class="service-card reveal"><div class="service-icon">EX</div><h3>Exhibition Displays</h3><p>Custom exhibition stands, pop-up banners, display counters, and event branding solutions built to attract attention.</p><span class="service-no">10</span></article>
+      <article class="service-card reveal"><div class="service-icon">BP</div><h3>Business Printing</h3><p>Business cards, letterheads, envelopes, brochures, catalogues, invoices, tags, boxes, and paper bags.</p><span class="service-no">11</span></article>
+      <article class="service-card reveal"><div class="service-icon">GP</div><h3>Gift & Offset Printing</h3><p>Branded corporate gifts, promotional products, and reliable offset printing for consistent high-volume production.</p><span class="service-no">12</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Recently Completed</span>
+      <h2>Six Projects That Showcase Our Quality and Craftsmanship.</h2>
+      <p>Replace each placeholder image path with your completed project photo. Recommended size: 1200 × 900 pixels.</p>
+    </div>
+    <div class="project-grid">
+      <article class="project-card reveal"><div class="project-image"><img src="project-1.jpg" alt="Vehicle branding project" onerror="this.style.display='none'"><div class="image-placeholder"><strong>Add Project Image 01</strong><span>Use: project-1.jpg</span></div></div><div class="project-info"><span>Vehicle Branding</span><h3>Commercial Fleet Graphics</h3></div></article>
+      <article class="project-card reveal"><div class="project-image"><img src="project-2.jpg" alt="Reception signage project" onerror="this.style.display='none'"><div class="image-placeholder"><strong>Add Project Image 02</strong><span>Use: project-2.jpg</span></div></div><div class="project-info"><span>3D Signage</span><h3>Premium Reception Logo</h3></div></article>
+      <article class="project-card reveal"><div class="project-image"><img src="project-3.jpg" alt="LED signage project" onerror="this.style.display='none'"><div class="image-placeholder"><strong>Add Project Image 03</strong><span>Use: project-3.jpg</span></div></div><div class="project-info"><span>LED Signage</span><h3>Illuminated Storefront Sign</h3></div></article>
+      <article class="project-card reveal"><div class="project-image"><img src="project-4.jpg" alt="Office branding project" onerror="this.style.display='none'"><div class="image-placeholder"><strong>Add Project Image 04</strong><span>Use: project-4.jpg</span></div></div><div class="project-info"><span>Office Branding</span><h3>Corporate Interior Branding</h3></div></article>
+      <article class="project-card reveal"><div class="project-image"><img src="project-5.jpg" alt="Kiosk branding project" onerror="this.style.display='none'"><div class="image-placeholder"><strong>Add Project Image 05</strong><span>Use: project-5.jpg</span></div></div><div class="project-info"><span>Kiosk Branding</span><h3>Retail Kiosk Transformation</h3></div></article>
+      <article class="project-card reveal"><div class="project-image"><img src="project-6.jpg" alt="Wide format printing project" onerror="this.style.display='none'"><div class="image-placeholder"><strong>Add Project Image 06</strong><span>Use: project-6.jpg</span></div></div><div class="project-info"><span>Digital Printing</span><h3>Large-Format Promotional Display</h3></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="founder" id="founder">
+  <div class="container founder-grid">
+    <div class="founder-photo reveal">
+      <img src="founder-rafeeq.jpg" alt="Rafeeq, Founder of Alpha Color Advertising" onerror="this.style.display='none'">
+      <div class="founder-placeholder"><strong>Add Founder Photo Here</strong><span>Save the photo as founder-rafeeq.jpg<br>Recommended portrait size: 900 × 1200 pixels</span></div>
+    </div>
+    <div class="founder-copy reveal">
+      <span class="eyebrow">Founder’s Message</span>
+      <blockquote>At Alpha Color Advertising, we believe every brand deserves to be seen with clarity, quality, and confidence. Our goal is to turn every idea into a visual experience that creates a lasting impression.</blockquote>
+      <p>We remain committed to professional service, reliable execution, and continuous improvement. Thank you to every client who trusts our team to represent their brand.</p>
+      <div class="signature" style="margin-top:28px"><strong>Rafeeq</strong><span>Founder, Alpha Color Advertising</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-copy reveal">
+      <span class="eyebrow">Contact Us</span>
+      <h2>Let’s Create Something Remarkable for Your Brand.</h2>
+      <p>Tell us what you need, and our team will help you choose the right branding, signage, or printing solution.</p>
+      <div class="contact-list">
+        <div class="contact-item"><small>Phone</small><a href="tel:+971544007790">+971 544007790</a></div>
+        <div class="contact-item"><small>Email</small><a href="mailto:alphacoloradv@gmail.com">alphacoloradv@gmail.com</a></div>
+        <div class="contact-item"><small>Location</small><span>Karama, Dubai, United Arab Emirates</span></div>
+        <div class="contact-item"><small>Instagram</small><a href="https://www.instagram.com/alphacolor.advertising/" target="_blank" rel="noopener">@alphacolor.advertising</a></div>
       </div>
     </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">Why Alpha Color</div>
-        <h2>Built On Precision And Follow-Through</h2>
+    <form class="contact-form reveal" onsubmit="sendToWhatsApp(event)">
+      <div class="form-grid">
+        <div class="field"><label for="name">Your Name</label><input id="name" required placeholder="Enter your name"></div>
+        <div class="field"><label for="phone">Phone Number</label><input id="phone" required placeholder="Enter phone number"></div>
+        <div class="field full"><label for="email">Email Address</label><input type="email" id="email" placeholder="Enter email address"></div>
+        <div class="field full"><label for="service">Required Service</label><input id="service" placeholder="Example: Vehicle graphics"></div>
+        <div class="field full"><label for="message">Project Details</label><textarea id="message" placeholder="Tell us about your project"></textarea></div>
       </div>
-      <div class="why-list reveal">
-        <div class="why-item"><h3>High-Quality Materials</h3><p>Every fabrication uses premium-grade acrylic, metal, and vinyl stock.</p></div>
-        <div class="why-item"><h3>Experienced Installers</h3><p>In-house teams handle production and on-site installation.</p></div>
-        <div class="why-item"><h3>Custom Designs</h3><p>No templated signage — every solution is built for your brand.</p></div>
-        <div class="why-item"><h3>Fast Turnaround</h3><p>Efficient production scheduling without cutting corners.</p></div>
-        <div class="why-item"><h3>Competitive Pricing</h3><p>Transparent quotations with no hidden costs.</p></div>
-        <div class="why-item"><h3>Complete Project Management</h3><p>One point of contact from concept through after-sales support.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow">How We Work</div>
-        <h2>Our Process</h2>
-      </div>
-      <div class="process reveal">
-        <div class="process-step"><span class="step-num">01</span><h3>Consultation</h3><p>Understanding your brand and site.</p></div>
-        <div class="process-step"><span class="step-num">02</span><h3>Design</h3><p>Concept drawings and material specs.</p></div>
-        <div class="process-step"><span class="step-num">03</span><h3>Approval</h3><p>Sign-off before production begins.</p></div>
-        <div class="process-step"><span class="step-num">04</span><h3>Production</h3><p>In-house fabrication and quality checks.</p></div>
-        <div class="process-step"><span class="step-num">05</span><h3>Installation</h3><p>Site-ready teams across the UAE.</p></div>
-        <div class="process-step"><span class="step-num">06</span><h3>After-Sales Support</h3><p>Maintenance and ongoing service.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-band">
-    <div class="wrap reveal">
-      <div class="eyebrow" style="justify-content:center;">Let's Build Your Brand Together</div>
-      <h2 style="margin-top:18px;">Whether A Single Sign Or A Full Corporate Rebrand — We're Ready</h2>
-      <div class="hero-actions">
-        <a href="contact.html" class="btn btn-solid">Request a Free Quote</a>
-        <a href="projects.html" class="btn btn-ghost">View Our Projects</a>
-      </div>
-    </div>
-  </section>
-
+      <button class="btn btn-primary" type="submit">Send Enquiry on WhatsApp</button>
+    </form>
+  </div>
+</section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
+<footer class="footer">
+  <div class="container">
     <div class="footer-grid">
-      <div class="footer-col">
-        <div class="footer-logo">
-          <img src="logo.png" alt="Alpha Color Advertising" class="logo-img">
-          <span class="logo-text">Alpha Color<span>Advertising · Dubai</span></span>
-        </div>
-        <p>A leading branding, signage, and printing company in Karama, Dubai — from concept and design through fabrication and installation.</p>
+      <div>
+        <a class="brand footer-brand" href="#home"><img src="logo.png" alt="Alpha Color Advertising logo"><span class="brand-name">Alpha Color<small>Advertising · Dubai</small></span></a>
+        <p>Premium branding, signage, vehicle graphics, exhibition displays, and commercial printing from concept to installation.</p>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html">LED &amp; 3D Signage</a></li>
-          <li><a href="services.html">Vehicle Graphics</a></li>
-          <li><a href="services.html">Office Branding</a></li>
-          <li><a href="services.html">Digital Printing</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <p>Karama, Dubai, United Arab Emirates</p>
-        <p style="margin-top:10px;"><a href="tel:+971544007790" style="color:var(--stone);">+971 54 400 7790</a></p>
-        <p style="margin-top:6px;"><a href="mailto:alphacoloradv@gmail.com" style="color:var(--stone);">alphacoloradv@gmail.com</a></p>
-      </div>
+      <div><h4>Menu</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#founder">Founder</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+      <div><h4>Popular Services</h4><ul><li><a href="#services">Vehicle Graphics</a></li><li><a href="#services">3D & LED Signage</a></li><li><a href="#services">Office Branding</a></li><li><a href="#services">Wide-Format Printing</a></li><li><a href="#services">Exhibition Displays</a></li></ul></div>
+      <div><h4>Get In Touch</h4><ul><li><a href="tel:+971544007790">+971 544007790</a></li><li><a href="mailto:alphacoloradv@gmail.com">alphacoloradv@gmail.com</a></li><li><a href="https://www.instagram.com/alphacolor.advertising/" target="_blank" rel="noopener">Instagram</a></li><li><a href="#contact">Karama, Dubai, UAE</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Alpha Color Advertising. All Rights Reserved.</p>
-      <div class="social-row">
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Facebook</a>
-      </div>
-    </div>
+    <div class="footer-bottom"><p>© 2026 Alpha Color Advertising. All Rights Reserved.</p><p>Branding · Signage · Printing · Dubai</p></div>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.querySelector('.nav-links');
-  if (toggle && links) {
-    toggle.addEventListener('click', function () {
-      var open = links.style.display === 'flex';
-      toggle.classList.toggle('open', !open);
-      links.style.display = open ? 'none' : 'flex';
-      links.style.cssText += open ? '' : 'position:absolute;top:86px;left:0;right:0;flex-direction:column;background:rgba(18,14,28,.98);padding:26px 32px;gap:20px;border-bottom:1px solid rgba(255,255,255,.08);';
-    });
-  }
-
-  // Scroll reveal
-  var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && revealEls.length) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('in'); });
-  }
-
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Hero glow follows the cursor, like light catching a sign as you walk past it
-  var hero = document.getElementById('hero');
-  var heroGlow = document.getElementById('heroGlow');
-  if (hero && heroGlow && !reduceMotion) {
-    hero.addEventListener('mousemove', function (e) {
-      var rect = hero.getBoundingClientRect();
-      var x = ((e.clientX - rect.left) / rect.width) * 100;
-      var y = ((e.clientY - rect.top) / rect.height) * 100;
-      heroGlow.style.setProperty('--gx', x + '%');
-      heroGlow.style.setProperty('--gy', y + '%');
-    });
-  }
-
-  // Service card tilt on hover
-  if (!reduceMotion) {
-    document.querySelectorAll('.svc-card').forEach(function (card) {
-      card.addEventListener('mousemove', function (e) {
-        var rect = card.getBoundingClientRect();
-        var px = (e.clientX - rect.left) / rect.width - 0.5;
-        var py = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = 'perspective(700px) rotateX(' + (py * -6) + 'deg) rotateY(' + (px * 8) + 'deg) translateY(-4px)';
-      });
-      card.addEventListener('mouseleave', function () {
-        card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateY(0)';
-      });
-    });
-  }
-
-  // Count-up stat numbers when they enter view
-  var counters = document.querySelectorAll('.num[data-count]');
-  if (counters.length) {
-    var animateCount = function (el) {
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      var suffix = el.getAttribute('data-suffix') || '';
-      if (reduceMotion) { el.textContent = target + suffix; return; }
-      var start = 0;
-      var duration = 1100;
-      var startTime = null;
-      function step(ts) {
-        if (!startTime) startTime = ts;
-        var progress = Math.min((ts - startTime) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target) + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    };
-    if ('IntersectionObserver' in window) {
-      var cio = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { animateCount(entry.target); cio.unobserve(entry.target); }
-        });
-      }, { threshold: 0.6 });
-      counters.forEach(function (el) { cio.observe(el); });
-    } else {
-      counters.forEach(animateCount);
-    }
-  }
+const menuBtn=document.getElementById('menuBtn');
+const nav=document.getElementById('mainNav');
+const navLinks=[...document.querySelectorAll('.nav-link')];
+menuBtn.addEventListener('click',()=>{
+  const opened=nav.classList.toggle('open');
+  menuBtn.classList.toggle('open',opened);
+  menuBtn.setAttribute('aria-expanded',opened);
+  document.body.classList.toggle('menu-open',opened);
 });
-</script>
+navLinks.forEach(link=>link.addEventListener('click',()=>{
+  nav.classList.remove('open');menuBtn.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');
+}));
 
+const sections=[...document.querySelectorAll('main section[id]')];
+const setActiveLink=()=>{
+  let current='home';
+  const marker=window.scrollY+window.innerHeight*.32;
+  sections.forEach(section=>{if(marker>=section.offsetTop)current=section.id});
+  navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+current));
+};
+window.addEventListener('scroll',setActiveLink,{passive:true});
+window.addEventListener('load',setActiveLink);
+
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+function sendToWhatsApp(event){
+  event.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const service=document.getElementById('service').value.trim();
+  const message=document.getElementById('message').value.trim();
+  const text=`Hello Alpha Color Advertising,%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email||'Not provided')}%0AService: ${encodeURIComponent(service||'Not specified')}%0AProject Details: ${encodeURIComponent(message||'Not provided')}`;
+  window.open(`https://wa.me/971544007790?text=${text}`,'_blank');
+}
+</script>
 </body>
 </html>
